@@ -20,5 +20,12 @@ export default {
 
     TOMATO_100: "#750310",
     TOMATO_400: "#AB4D55",
+  },
+
+  FONT_FAMILY: {
+    DM_SANS: "'DM Sans', sans-serif;",
+    POPPINS: "'Poppins', sans-serif;",
+    ROBOTO: "'Roboto', sans-serif;",
+    ROBOTO_SLAB: "'Roboto Slab', serif;"
   }
 }
