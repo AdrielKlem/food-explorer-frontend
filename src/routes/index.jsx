@@ -1,11 +1,14 @@
 import { BrowserRouter } from "react-router-dom"
 
-import { SignIn } from '../pages/SignIn'
+import { Input } from '../components/Input'
 
 export function Routes() {
     return(
         <BrowserRouter>
-            <SignIn />
+            <Input 
+                name={"Email"}
+                placeholder={"Opa"}
+            />
         </BrowserRouter>
     )
 }
