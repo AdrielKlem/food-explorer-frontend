@@ -7,15 +7,15 @@ export const Container = styled.div`
     align-items: stretch;
     flex-direction: column;
 
+    max-width: 48rem;
     padding: 0 clamp(4rem, 1vw + 2rem, 6rem);
-
     margin: 10rem auto;
 `
 
 export const Form = styled.form`
-
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     gap: 3.2rem;
 
