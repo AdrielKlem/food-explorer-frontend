@@ -54,17 +54,19 @@ export const Form = styled.form`
 
     @media (min-width: 700px) {
         background-color: ${({ theme }) => theme.COLORS.DARK_700};
-            
+        
+        margin: 1.6rem 0;
         padding: 3rem 2.5rem;
+        gap: 2.4rem;
+
         > h2 {
             color: ${({ theme }) => theme.COLORS.LIGHT_100};
-
-            font-family: Poppins;
-            font-size: 32px;
+            
+            font-family: ${({ theme }) => theme.FONT_FAMILY.POPPINS};
+            font-size: 2.4rem;
             font-style: normal;
             font-weight: 500;
-            font-size: 24px;
-            margin: 3.2rem 0 1.6rem;
+            margin: 3.2rem 0 .8rem;
         }
     }
 `
