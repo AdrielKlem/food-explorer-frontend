@@ -1,14 +1,11 @@
 import { BrowserRouter } from "react-router-dom"
 
-import { Input } from '../components/Input'
+import { Logo } from '../components/Logo'
 
 export function Routes() {
     return(
         <BrowserRouter>
-            <Input 
-                name={"Email"}
-                placeholder={"Opa"}
-            />
+            <Logo />
         </BrowserRouter>
     )
 }
