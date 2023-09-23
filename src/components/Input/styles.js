@@ -5,6 +5,7 @@ export const Container = styled.div`
     flex-direction: column;
     gap: .8rem;
     
+    font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO};
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     
     width: 50%;
