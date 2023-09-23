@@ -10,6 +10,7 @@ export function SignIn() {
       <Logo />
       
       <Form>
+        <h2>Crie a sua conta</h2>
         <Input
           name={"Email"}
           placeholder={"Exemplo: exemplo@exemplo.com.br"}

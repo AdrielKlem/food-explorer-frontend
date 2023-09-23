@@ -16,10 +16,12 @@ export const Container = styled.div`
     @media (min-width: 700px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 2.4rem;
-        padding: 0 0.8rem;
+        align-items: center;
+        gap: 2.6rem;
+        
+        padding: 0 1.6rem;
         margin: 0 auto;
-        max-width: 76rem;
+        max-width: 90rem;
     }
 `
 
@@ -30,26 +32,22 @@ export const Form = styled.form`
     justify-content: center;
     gap: 3.2rem;
 
+
+    @media (max-width: 700px) {
     margin-top: 6.4rem;
-
-    > h1 {
-        font-size: 48px;
-        color: ${({ theme }) => theme.COLORS.PINK}
-    }
-
-    > h2 {
-        text-align: left;
-        font-size: 24px;
-        margin: 48px 0;
+        
+        > h2 {
+            display: none;
+        }
     }
 
     > p {
-        font-size: 14px;
-        color: ${({ theme }) => theme.COLORS.GRAY_100};
+        font-size: 1.6rem;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
 
     > a {
-        margin-top: 48px;
+        margin-top: 4.8rem;
         color: ${({ theme }) => theme.COLORS.PINK};
         
         display: flex;
@@ -63,6 +61,18 @@ export const Form = styled.form`
     }  
 
     @media (min-width: 700px) {
-        /* max-width: 48rem; */
+        background-color: ${({ theme }) => theme.COLORS.DARK_700};
+            
+        padding: 3rem 2.5rem;
+        > h2 {
+            color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+            font-family: Poppins;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            margin: 3.2rem 0 1.6rem;
+        }
     }
 `

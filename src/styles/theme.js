@@ -3,9 +3,9 @@ export default {
     DARK_1000: "#192227",
     DARK_900: "#0D1D25",
     DARK_800: "#0D161B",
-    DARK_700: "#3E3B47",
-    DARK_600: "#00111A",
-    DARK_400: "#000A0F",
+    DARK_700: "#00111A",
+    DARK_600: "#000A0F",
+    DARK_400: "#3E3B47",
 
     LIGHT_100: "#FFFFFF",
     LIGHT_200: "#FFFAF1",
