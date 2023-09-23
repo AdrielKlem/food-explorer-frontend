@@ -1,11 +1,11 @@
 import { BrowserRouter } from "react-router-dom"
 
-import { Details } from '../pages/Details'
+import { SignIn } from '../pages/SignIn'
 
 export function Routes() {
     return(
         <BrowserRouter>
-            <Details />
+            <SignIn />
         </BrowserRouter>
     )
 }
