@@ -7,9 +7,8 @@ export const Container = styled.div`
         display: flex;
         align-items: stretch;
         flex-direction: column;
-        
-        max-width: 48rem;
-        margin: 10rem auto;
+
+        margin: 8rem auto;
         padding: 0 clamp(4rem, 1vw + 2rem, 6rem);
     }
 
@@ -18,7 +17,7 @@ export const Container = styled.div`
         grid-template-columns: 1fr 1fr;
         align-items: center;
         gap: 2.6rem;
-        
+
         padding: 0 1.6rem;
         margin: 0 auto;
         max-width: 90rem;
@@ -32,33 +31,26 @@ export const Form = styled.form`
     justify-content: center;
     gap: 3.2rem;
 
+    a {
+        font-size: 1.6rem;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+        cursor: pointer;
+
+        transition: color 0.2s;
+
+        &:hover {
+            color: ${({ theme }) => theme.COLORS.CAKE_200};
+        }
+    }
 
     @media (max-width: 700px) {
-    margin-top: 6.4rem;
+        margin-top: 6.4rem;
         
         > h2 {
             display: none;
         }
     }
-
-    > p {
-        font-size: 1.6rem;
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    }
-
-    > a {
-        margin-top: 4.8rem;
-        color: ${({ theme }) => theme.COLORS.PINK};
-        
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-
-        > svg {
-            font-size: 32px;
-        }
-    }  
 
     @media (min-width: 700px) {
         background-color: ${({ theme }) => theme.COLORS.DARK_700};

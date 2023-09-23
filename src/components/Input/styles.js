@@ -20,6 +20,8 @@ export const Container = styled.div`
         border: 0;
         border-radius: 1rem;
 
+        font-size: clamp(0.8rem, 1vw + 0.8rem, 1.6rem);
+
         &::placeholder {
             color: ${({ theme }) => theme.COLORS.LIGHT_500};
         }
