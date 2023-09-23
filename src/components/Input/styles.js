@@ -17,8 +17,8 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         
         width: 100%;
-        height: 56px;
-        padding: 12px;
+        height: clamp(5.8rem, 1vw + 0.4rem, 6rem);
+        padding: 1.2rem;
         
         border: 0;
         border-radius: 1rem;
@@ -29,6 +29,6 @@ export const Container = styled.div`
     }
 
     > svg {
-        margin-left: 16px;
+        margin-left: 1.6rem;
     }
 `
