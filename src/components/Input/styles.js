@@ -8,7 +8,7 @@ export const Container = styled.div`
     font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO};
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     
-    width: 50%;
+    width: 100%;
     
     margin: auto;
 
