@@ -1,15 +1,24 @@
 export default {
   COLORS: {
-    BACKGROUND_900: "#232129",
-    BACKGROUND_800: "#312E38",
-    BACKGROUND_700: "#3E3B47",
+    DARK_1000: "#192227",
+    DARK_900: "#0D1D25",
+    DARK_800: "#0D161B",
+    DARK_700: "#3E3B47",
+    DARK_600: "#00111A",
+    DARK_400: "#000A0F",
 
-    WHITE: "#F4EDE8",
-    ORANGE: "#FF9000",
+    LIGHT_100: "#FFFFFF",
+    LIGHT_200: "#FFFAF1",
+    LIGHT_300: "#E1E1E6",
+    LIGHT_400: "#C4C4CC",
+    LIGHT_500: "#7C7C8A",
+    LIGHT_600: "#76797B",
+    LIGHT_700: "#4D585E",
 
-    GRAY_100: "#999591",
-    GRAY_300: "#666360",
+    CAKE_100: "#065E7C",
+    CAKE_200: "#82F3FF",
 
-    RED: "#FF002E"
+    TOMATO_100: "#750310",
+    TOMATO_400: "#AB4D55",
   }
 }
