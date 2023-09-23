@@ -9,9 +9,6 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     
     width: 100%;
-    
-    margin: auto;
-
     > input {
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
