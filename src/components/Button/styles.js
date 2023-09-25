@@ -6,7 +6,8 @@ export const Container = styled.button`
     width: 100%;
     background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
-    height: clamp(4.8rem, 1vw + 0.4rem, 5.4rem);
+    height: clamp(1.6rem, 1vw + 3.2rem, 5.4rem);
+    font-size: clamp(0.4rem, 1vw + .8rem , 1.6rem);
     border: 0;
     padding: 0 1.6rem;
     border-radius: 1rem;
