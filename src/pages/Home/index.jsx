@@ -1,4 +1,4 @@
-import { Container, Banner, Section, Card, Price, Length, Fav } from "./styles"
+import { Container, Banner, Section, Card, Price, Length, Icon } from "./styles"
 
 import { Header } from "../../components/Header"
 import { Button } from "../../components/Button"
@@ -6,11 +6,14 @@ import { Footer } from "../../components/Footer"
 
 import { IoIosArrowForward } from "react-icons/io"
 import { AiOutlineLine, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai"
+import { BsPencil } from "react-icons/bs"
 
 import banner  from "../../assets/banner-png.png"
 import group1  from "../../assets/Mask group-1.png"
 
 export function Home() {
+     const isAdmin = true
+
     return (
     <Container>
         <Header />
@@ -28,9 +31,9 @@ export function Home() {
 
                 <div className="meal section">
                     <Card>
-                        <Fav>
-                            <AiOutlineHeart />
-                        </Fav>
+                        <Icon>
+                            { isAdmin ? <BsPencil /> : <AiOutlineHeart />}
+                        </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>
@@ -44,9 +47,9 @@ export function Home() {
                         />
                     </Card>
                     <Card>
-                        <Fav>
+                        <Icon>
                             <AiOutlineHeart />
-                        </Fav>
+                        </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>
@@ -60,9 +63,9 @@ export function Home() {
                         />
                     </Card>
                     <Card>
-                        <Fav>
+                        <Icon>
                             <AiOutlineHeart />
-                        </Fav>
+                        </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>
@@ -76,9 +79,9 @@ export function Home() {
                         />
                     </Card>
                     <Card>
-                        <Fav>
+                        <Icon>
                             <AiOutlineHeart />
-                        </Fav>
+                        </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>
@@ -92,9 +95,9 @@ export function Home() {
                         />
                     </Card>
                     <Card>
-                        <Fav>
+                        <Icon>
                             <AiOutlineHeart />
-                        </Fav>
+                        </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>
@@ -113,9 +116,9 @@ export function Home() {
                 
                 <div className="sugar  section">
                     <Card>
-                        <Fav>
+                        <Icon>
                             <AiOutlineHeart />
-                        </Fav>
+                        </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>
@@ -129,9 +132,9 @@ export function Home() {
                         />
                     </Card>
                     <Card>
-                        <Fav>
+                        <Icon>
                             <AiOutlineHeart />
-                        </Fav>
+                        </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>
@@ -145,9 +148,9 @@ export function Home() {
                         />
                     </Card>
                     <Card>
-                        <Fav>
+                        <Icon>
                             <AiOutlineHeart />
-                        </Fav>
+                        </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>

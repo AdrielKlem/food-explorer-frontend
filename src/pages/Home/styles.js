@@ -130,7 +130,7 @@ export const Length = styled.div`
     }
 `
 
-export const Fav = styled.div`
+export const Icon = styled.div`
     position: absolute;
     right: 14px;
 
