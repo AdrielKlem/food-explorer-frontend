@@ -27,9 +27,11 @@ export const Menu = styled.div`
 export const MenuHeader = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
+    font-size: 2.4rem;
     padding: 1.2rem;
-
+    
     display: flex;
+    gap: 0.8rem;
     align-items: center;
 `
 

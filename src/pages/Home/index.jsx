@@ -22,7 +22,7 @@ export function Home() {
                 </div>
             </Banner>
             <Section>
-                
+
                 <h2>Refeições</h2>
 
                 <div className="meal section">
@@ -108,7 +108,7 @@ export function Home() {
                     </Card>
                 </div>
 
-                <h2>Sobremsa</h2>
+                <h2>Sobremesa</h2>
                 
                 <div className="sugar  section">
                     <Card>
