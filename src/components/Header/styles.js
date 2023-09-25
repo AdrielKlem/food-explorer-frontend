@@ -54,4 +54,10 @@ export const Logout = styled.button`
     background: none;
 
     width: 100%;
+
+    transition: color 0.2s;
+
+    &:hover {
+        color: ${({ theme }) => theme.COLORS.CAKE_200};
+    }
 `
