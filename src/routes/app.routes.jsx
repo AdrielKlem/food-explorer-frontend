@@ -7,9 +7,8 @@ import { Footer } from '../components/Footer'
 export function AppRoutes() {
     return(
         <Routes>
-            <Route path='/d' element={<Home />} />
+            <Route path='/' element={<Home />} />
             <Route path='/d' element={<Details />} />
-            <Route path='/' element={<Footer />} />
         </Routes>
     )
 }

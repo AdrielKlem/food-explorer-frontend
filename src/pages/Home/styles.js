@@ -7,6 +7,7 @@ export const Container = styled.div`
 
     > main {
         padding: 1.2rem;
+        margin-bottom: 1.2rem;
     }
 `
 

@@ -2,6 +2,7 @@ import { Container, Banner, Section, Card, Price, Length, Fav } from "./styles"
 
 import { Header } from "../../components/Header"
 import { Button } from "../../components/Button"
+import { Footer } from "../../components/Footer"
 
 import { IoIosArrowForward } from "react-icons/io"
 import { AiOutlineLine, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai"
@@ -162,6 +163,7 @@ export function Home() {
                 </div>
             </Section>
         </main>
+        <Footer />
     </Container>
     )
 }

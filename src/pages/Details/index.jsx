@@ -3,6 +3,7 @@ import { Container, Section, Ingredients, Length } from "./styles"
 import { Header } from "../../components/Header"
 import { Button } from "../../components/Button"
 import { ButtonText } from "../../components/ButtonText"
+import { Footer } from "../../components/Footer"
 
 import { AiOutlineLine, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai"
 import { PiCaretLeft } from "react-icons/pi"
@@ -43,6 +44,7 @@ export function Details() {
               />
             </Length>
         </Section>
+        <Footer />
       </Container>
   )
 }
