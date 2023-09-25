@@ -9,10 +9,21 @@ import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai"
 import { PiCaretLeft } from "react-icons/pi"
 
 import dishPicture from "../../assets/Mask group-1.png"
+import { useNavigate } from "react-router-dom"
 
 
 export function Details() {
+  const navigate = useNavigate()
   const isAdmin = true
+
+  function handleToChange() {
+        navigate("/details")
+  }
+
+  function handleBack() {
+        navigate(-1)
+  }
+
 
   return (
       <Container>
@@ -21,6 +32,7 @@ export function Details() {
            <header>
             <PiCaretLeft />
              <ButtonText
+             onClick={handleBack}
               title="Voltar"
               />
            </header>
@@ -40,7 +52,8 @@ export function Details() {
             <Length>
              {
               isAdmin ?
-              <Button 
+              <Button
+                  onClick={handleToChange}
                   title={"Editar o Prato"}
               />
               :

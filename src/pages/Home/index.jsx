@@ -17,9 +17,10 @@ export function Home() {
 
     const isAdmin = false
 
-    function handleToNew() {
-        navigate("/new")
+    function handleToDetails() {
+        navigate("/details")
     }
+    
 
     return (
     <Container>
@@ -62,7 +63,7 @@ export function Home() {
                                     <AiOutlinePlus />
                                 </Length>
                                 <Button 
-                                    onClick={handleToNew}
+                                    onClick={handleToDetails}
                                     
                                     title={"incluir"}
                                 />
