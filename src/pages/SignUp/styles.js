@@ -26,7 +26,7 @@ export const Form = styled.form`
     justify-content: center;
     gap: 2.4rem;
 
-    a {
+    button {
         font-size: clamp(0.8rem, 1vw + 1.4rem , 1.6rem);;
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
 

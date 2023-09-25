@@ -25,7 +25,7 @@ export function SignIn() {
           title={"Entrar"}
         />
 
-        <Link to="/">
+        <Link to="/register">
           Criar uma Conta
         </Link>
       </Form>

@@ -4,10 +4,18 @@ import { Logo } from "../../components/Logo"
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export function SignUp() {
+  const navigate = useNavigate()
+
+  
+  function handleBack() {
+        navigate(-1)
+  }
+
   return (
+
     <Container>
       <Logo />
       
@@ -29,7 +37,9 @@ export function SignUp() {
           title={"Criar conta"}
         />
 
-        <Link to="/">
+        <Link 
+          onClick={handleBack}
+        >
           Já tenho uma conta
         </Link>
       </Form>
