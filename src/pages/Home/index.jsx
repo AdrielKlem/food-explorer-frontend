@@ -1,10 +1,12 @@
-import { ReactDOM  } from "react"
+import { Container } from "./styles"
 
+import { Header } from "../../components/Header"
 
 export function Home() {
     return (
-    <>
-        <h1>teste</h1>
-    </>
+    <Container>
+        <Header />
+        <h1>Opa</h1>
+    </Container>
     )
 }
