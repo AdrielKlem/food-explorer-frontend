@@ -5,13 +5,15 @@ import { Button } from "../../components/Button"
 import { ButtonText } from "../../components/ButtonText"
 import { Footer } from "../../components/Footer"
 
-import { AiOutlineLine, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai"
+import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai"
 import { PiCaretLeft } from "react-icons/pi"
 
 import dishPicture from "../../assets/Mask group-1.png"
 
 
 export function Details() {
+  const isAdmin = true
+
   return (
       <Container>
         <Header />
@@ -36,12 +38,19 @@ export function Details() {
               <span>Tomate</span>
             </Ingredients>
             <Length>
-              <AiOutlineLine />
-                  <div id="number">01</div>
-              <AiOutlinePlus />
+             {
+              isAdmin ?
               <Button 
+                  title={"Editar o Prato"}
+              />
+              :
+              <>
+                <AiOutlineLine /><div id="number">01</div><AiOutlinePlus />
+                 <Button 
                   title={"Comprar"}
               />
+              </>
+             }
             </Length>
         </Section>
         <Footer />
