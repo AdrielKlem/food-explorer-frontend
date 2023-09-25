@@ -9,18 +9,23 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     
     width: 100%;
+
+    > label {
+        font-size: clamp(0.8rem, 2vw + 0.6rem, 1.6rem);
+    }
+
     > input {
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         
         width: 100%;
-        height: clamp(5.8rem, 1vw + 0.4rem, 6rem);
+        height: clamp(2.4rem, 1vw + 3.6rem, 4.5rem);
         padding: 1.2rem;
         
         border: 0;
         border-radius: 1rem;
+        font-size: clamp(0.8rem, 1vw + 0.6rem, 1.6rem);
 
-        font-size: clamp(0.8rem, 1vw + 0.8rem, 1.6rem);
 
         &::placeholder {
             color: ${({ theme }) => theme.COLORS.LIGHT_500};

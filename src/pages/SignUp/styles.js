@@ -14,7 +14,7 @@ export const Container = styled.div`
         align-items: center;
         gap: 2.6rem;
 
-        padding: 0 1.6rem;
+        padding: 0 2.4rem;
         margin: 0 auto;
     }
 `
@@ -24,10 +24,10 @@ export const Form = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3.2rem;
+    gap: 2.4rem;
 
     a {
-        font-size: 1.6rem;
+        font-size: clamp(0.8rem, 1vw + 1.4rem , 1.6rem);;
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
         cursor: pointer;
@@ -40,7 +40,7 @@ export const Form = styled.form`
     }
 
     @media (max-width: 680px) {
-        margin-top: 3.2rem;
+        margin-top: 1.6rem;
         
         > h2 {
             display: none;
@@ -50,9 +50,8 @@ export const Form = styled.form`
     @media (min-width: 680px) {
         background-color: ${({ theme }) => theme.COLORS.DARK_700};
         
-        margin: 1.6rem 0;
+        margin: 2.4rem 0;
         padding: 3rem 2.5rem;
-        gap: 2.4rem;
 
         > h2 {
             color: ${({ theme }) => theme.COLORS.LIGHT_100};
