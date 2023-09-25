@@ -8,7 +8,7 @@ export const Container = styled.div`
 
     > h1 {
         font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO};
-        font-size: clamp(1.6rem, 3vw + 2.2rem , 4.8rem);
+        font-size: clamp(0.6rem, 3vw + 1.2rem , 5.8rem);
         font-style: normal;
         font-weight: 700;
         line-height: normal;
