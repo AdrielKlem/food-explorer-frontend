@@ -4,12 +4,13 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 import { PiReceipt } from "react-icons/pi"
 import { GoSearch } from "react-icons/go"
 
-import { Container, Menu, MenuHeader, MenuBody, Logout } from "./styles"
+import { Container, Menu, MenuHeader, MenuBody, MenuOption } from "./styles"
 import { Input } from "../Input"
 import { Logo } from "../Logo"
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const isAdmin = true
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -28,15 +29,16 @@ export function Header() {
                   icon={GoSearch}
                   placeholder={"Busque por pratos ou ingredientes"}
                 />
-                <Logout>
+                {isAdmin ? <MenuOption>Novo prato</MenuOption> : null }
+                <MenuOption>
                     Sair
-                </Logout>
+                </MenuOption>
               </MenuBody>
             </Menu>
           : <AiOutlineMenu onClick={toggleMenu} />
         }
-        {   menuOpen ? null : <Logo className="logo" /> }
-        {   menuOpen ? null : <PiReceipt /> }
+        {   menuOpen ? null : <Logo className="logo" />}
+        {   menuOpen ? null : isAdmin ? <span>Admin</span> : <PiReceipt /> }
     </Container>
   );
 }

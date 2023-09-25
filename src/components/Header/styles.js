@@ -15,6 +15,10 @@ export const Container = styled.div`
         height: 3.2rem;
         width: 3.2rem;
     }
+
+    span {
+        color: ${({ theme }) => theme.COLORS.CAKE_200};
+    }
 `
 
 export const Menu = styled.div`
@@ -33,6 +37,10 @@ export const MenuHeader = styled.div`
     display: flex;
     gap: 0.8rem;
     align-items: center;
+
+    span {
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    }
 `
 
 export const MenuBody = styled.div`
@@ -46,7 +54,7 @@ export const MenuBody = styled.div`
     align-items: center;
 `
 
-export const Logout = styled.button`
+export const MenuOption = styled.button`
     display: flex;
     align-self: left;
 
