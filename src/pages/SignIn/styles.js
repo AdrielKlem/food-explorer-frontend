@@ -3,16 +3,12 @@ import styled from "styled-components";
 export const Container = styled.div`
     height: 100vh;
     
-    @media (max-width: 700px) {
-        display: flex;
-        align-items: stretch;
-        flex-direction: column;
-
+    @media (max-width: 680px) {
         margin: 8rem auto;
         padding: 0 clamp(4rem, 1vw + 2rem, 6rem);
     }
 
-    @media (min-width: 700px) {
+    @media (min-width: 680px) {
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
@@ -44,15 +40,16 @@ export const Form = styled.form`
         }
     }
 
-    @media (max-width: 700px) {
-        margin-top: 6.4rem;
+    @media (max-width: 680px) {
+        margin-top: 3.2rem;
+        max-height: 33.5rem;
         
         > h2 {
             display: none;
         }
     }
 
-    @media (min-width: 700px) {
+    @media (min-width: 680px) {
         background-color: ${({ theme }) => theme.COLORS.DARK_700};
         
         margin: 1.6rem 0;
