@@ -29,7 +29,7 @@ export function Header() {
                   icon={GoSearch}
                   placeholder={"Busque por pratos ou ingredientes"}
                 />
-                {isAdmin ? <MenuOption>Novo prato</MenuOption> : null }
+                {isAdmin ? <MenuOption to="/new">Novo prato</MenuOption> : null }
                 <MenuOption>
                     Sair
                 </MenuOption>

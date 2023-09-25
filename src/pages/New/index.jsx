@@ -14,9 +14,13 @@ import dishPicture from "../../assets/Mask group-1.png"
 
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 
 export function New() {
+     const navigate = useNavigate()
+
+
     const pictureUrl = null
     const [picture, setPicture ] = useState(null)
     const [pcitureFile, setPictureFile ] = useState(null)
@@ -29,12 +33,17 @@ export function New() {
     setPicture(imagePreview)
     }
 
+    function handleBack() {
+        navigate(-1)
+    }
+
     return (
         <Container>
             <Header />
             <header>
                 <PiCaretLeft />
                 <ButtonText
+                onClick={handleBack}
                 title="Voltar"
                 />
             </header>
@@ -96,6 +105,7 @@ export function New() {
                 </div>
                 <Button 
                     title={"Salvar Alterações"}
+                    onClick={handleBack}
                 />
              </Form>
             <Footer />

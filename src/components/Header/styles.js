@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -54,7 +55,7 @@ export const MenuBody = styled.div`
     align-items: center;
 `
 
-export const MenuOption = styled.button`
+export const MenuOption = styled(Link)`
     display: flex;
     align-self: left;
 

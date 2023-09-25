@@ -74,6 +74,7 @@ export const Card = styled.div`
     gap: 1.6rem;
 
     min-width: 20.5rem;
+    min-height: 30rem;
     padding: 2.4rem 1.6rem;
 
     border-radius: 8px;
@@ -137,5 +138,7 @@ export const Icon = styled.div`
     svg {
         width: 2.4rem;
         height: 2.2rem;    
+        
+        color: var(--light-light-300, #E1E1E6);
     }
 `

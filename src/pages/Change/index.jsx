@@ -12,11 +12,14 @@ import { BsUpload } from "react-icons/bs"
 
 import dishPicture from "../../assets/Mask group-1.png"
 
+import { useNavigate } from "react-router-dom"
 
 import { useState } from "react";
 
 
 export function Change() {
+    const navigate = useNavigate()
+
     const pictureUrl = null
     const [picture, setPicture ] = useState(null)
     const [pcitureFile, setPictureFile ] = useState(null)
@@ -27,6 +30,11 @@ export function Change() {
 
     const imagePreview = URL.createObjectURL(file)
     setPicture(imagePreview)
+
+    }
+
+    function handleBack() {
+        navigate(-1)
     }
 
     return (
@@ -35,6 +43,7 @@ export function Change() {
             <header>
                 <PiCaretLeft />
                 <ButtonText
+                onClick={handleBack}
                 title="Voltar"
                 />
             </header>
@@ -97,9 +106,11 @@ export function Change() {
                 <div className="buttons">
                     <Button id={"remove"}
                         title={"Excluir"}
+                        onClick={handleBack}
                     />
                     <Button
                         title={"Salvar Alterações"}
+                        onClick={handleBack}
                     />
                 </div>
              </Form>

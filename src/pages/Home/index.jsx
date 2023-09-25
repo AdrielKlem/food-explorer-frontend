@@ -10,9 +10,16 @@ import { BsPencil } from "react-icons/bs"
 
 import banner  from "../../assets/banner-png.png"
 import group1  from "../../assets/Mask group-1.png"
+import { Link, useNavigate } from "react-router-dom"
 
 export function Home() {
-     const isAdmin = true
+    const navigate = useNavigate()
+
+    const isAdmin = false
+
+    function handleToNew() {
+        navigate("/new")
+    }
 
     return (
     <Container>
@@ -32,67 +39,35 @@ export function Home() {
                 <div className="meal section">
                     <Card>
                         <Icon>
-                            { isAdmin ? <BsPencil /> : <AiOutlineHeart />}
+                            { isAdmin ? 
+                                <>
+                                    <Link to="/change">
+                                        <BsPencil  />
+                                    </Link>
+                                        
+                                </> : 
+                                <>
+                                    <AiOutlineHeart />
+                                </>                            
+                            }
                         </Icon>
                         <img src={group1} alt="" />
                         <h3>Suco de maracujá <IoIosArrowForward /></h3>
                         <Price>R$ 49,97</Price>
-                        <Length>
-                            <AiOutlineLine />
-                                <div id="number">01</div>
-                            <AiOutlinePlus />
-                        </Length>
-                        <Button 
-                            title={"incluir"}
-                        />
-                    </Card>
-                    <Card>
-                        <Icon>
-                            <AiOutlineHeart />
-                        </Icon>
-                        <img src={group1} alt="" />
-                        <h3>Suco de maracujá <IoIosArrowForward /></h3>
-                        <Price>R$ 49,97</Price>
-                        <Length>
-                            <AiOutlineLine />
-                                <div id="number">01</div>
-                            <AiOutlinePlus />
-                        </Length>
-                        <Button 
-                            title={"incluir"}
-                        />
-                    </Card>
-                    <Card>
-                        <Icon>
-                            <AiOutlineHeart />
-                        </Icon>
-                        <img src={group1} alt="" />
-                        <h3>Suco de maracujá <IoIosArrowForward /></h3>
-                        <Price>R$ 49,97</Price>
-                        <Length>
-                            <AiOutlineLine />
-                                <div id="number">01</div>
-                            <AiOutlinePlus />
-                        </Length>
-                        <Button 
-                            title={"incluir"}
-                        />
-                    </Card>
-                    <Card>
-                        <Icon>
-                            <AiOutlineHeart />
-                        </Icon>
-                        <img src={group1} alt="" />
-                        <h3>Suco de maracujá <IoIosArrowForward /></h3>
-                        <Price>R$ 49,97</Price>
-                        <Length>
-                            <AiOutlineLine />
-                                <div id="number">01</div>
-                            <AiOutlinePlus />
-                        </Length>
-                        <Button 
-                            title={"incluir"}
-                        />
+                        { isAdmin ? null :                      
+                            <>
+                                <Length>
+                                    <AiOutlineLine />
+                                        <div id="number">01</div>
+                                    <AiOutlinePlus />
+                                </Length>
+                                <Button 
+                                    onClick={handleToNew}
+                                    
+                                    title={"incluir"}
+                                />
+                            </>
+                        }
                     </Card>
                     <Card>
                         <Icon>

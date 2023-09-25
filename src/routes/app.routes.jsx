@@ -1,14 +1,17 @@
 import { Routes, Route } from 'react-router-dom'
 
 import { Home } from '../pages/Home'
+import { Details } from '../pages/Details'
 import { Change } from '../pages/Change'
-import { Footer } from '../components/Footer'
+import { New } from '../pages/New'
 
 export function AppRoutes() {
     return(
         <Routes>
-            <Route path='/d' element={<Home />} />
-            <Route path='/' element={<Change />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/details' element={<Details />} />
+            <Route path='/new' element={<New />} />
+            <Route path='/change' element={<Change />} />
         </Routes>
     )
 }
