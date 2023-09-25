@@ -2,6 +2,7 @@ import { Container, Form, Picture } from "./styles";
 
 import { Header } from "../../components/Header"
 import { Footer } from "../../components/Footer"
+import { Button } from "../../components/Button"
 import { ButtonText } from "../../components/ButtonText"
 import { Input } from "../../components/Input"
 
@@ -56,6 +57,33 @@ export function New() {
                 <Input 
                     name={"Nome"}
                     placeholder={"Exemplo de Nome: "}
+                />
+                <div className="category">
+                    <label for="escolha">Categoria</label>
+                    <select id="escolha" name="escolha">
+                        <option value="meal">Refeição</option>
+                        <option value="dessert">Sobremesa</option>
+                        <option value="snack">Lanche</option>
+                    </select>
+                </div>
+                <Input 
+                    name={"Preço"}
+                    placeholder={"R$ 00,00"}
+                    type={"Number"}
+                />
+                <div className="desc">
+                    <label htmlFor="Description">
+                        Descrição
+                    </label>
+                    <textarea
+                        name={"Description"}
+                        placeholder={"Descrição aqui"}
+                        type={"textarea"}
+                        >
+                    </textarea>
+                </div>
+                <Button 
+                    title={"Salvar Alterações"}
                 />
              </Form>
             <Footer />
