@@ -27,7 +27,7 @@ export const Form = styled.form`
     gap: 2.4rem;
 
     button {
-        font-size: clamp(0.8rem, 1vw + 1.4rem , 1.6rem);;
+        font-size: clamp(0.8rem, 1vw + 1.4rem , 1.6rem);
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
         cursor: pointer;
