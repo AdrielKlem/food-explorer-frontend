@@ -1,0 +1,22 @@
+import { FiPlus, FiX } from "react-icons/fi"
+import { Container } from "./styles"
+
+export function IngredientsItem({ isnew = false, value, onClick, ...rest }) {
+    return (
+        <Container $isnew={isnew}>
+            <input 
+            type="text" 
+            value={value}
+            readOnly={!isnew}
+            {...rest}
+            />
+            <button 
+                type="button"
+                className={isnew ? "button-add" : "button-delete" }
+                onClick={onClick}
+            >
+                {isnew ? <FiPlus /> : <FiX /> }
+            </button>
+        </Container>
+    )
+}

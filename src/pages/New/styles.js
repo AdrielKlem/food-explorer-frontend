@@ -9,10 +9,9 @@ export const Container = styled.div`
 export const Form = styled.form`
     max-width: 340px;
     margin: 30px auto;
-
-    > div:nth-child(3) {
-        margin-bottom: 24px;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
 
     .category {
         display: flex;
@@ -47,8 +46,7 @@ export const Form = styled.form`
         flex-direction: column;
         gap: 0.8rem;
 
-        margin-bottom: 2.4rem;
-        
+                
         textarea {
 
             background-color: ${({ theme }) => theme.COLORS.DARK_900};
@@ -66,6 +64,10 @@ export const Form = styled.form`
             &:placeholder {
                 color: ${({ theme }) => theme.COLORS.LIGHT_500};
             }   
+        }
+
+        .ingredients {
+            display: flex;
         }
     }
 `

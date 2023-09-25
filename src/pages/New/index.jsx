@@ -5,6 +5,7 @@ import { Footer } from "../../components/Footer"
 import { Button } from "../../components/Button"
 import { ButtonText } from "../../components/ButtonText"
 import { Input } from "../../components/Input"
+import { IngredientsItem } from "../../components/IngredientsItem"
 
 import { PiCaretLeft } from "react-icons/pi"
 import { BsUpload } from "react-icons/bs"
@@ -58,6 +59,17 @@ export function New() {
                     name={"Nome"}
                     placeholder={"Exemplo de Nome: "}
                 />
+
+                <div className="ingredients">
+                    <IngredientsItem
+                        value={"Sabão"}
+                    />
+                     <IngredientsItem
+                        isnew
+                        placeholder="Novo Link"
+                    />
+                </div>
+
                 <div className="category">
                     <label for="escolha">Categoria</label>
                     <select id="escolha" name="escolha">
