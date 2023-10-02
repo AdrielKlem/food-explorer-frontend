@@ -5,8 +5,13 @@ import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { MyContext } from "../../hooks/myContext"
 
 export function SignIn() {
+  const data = useContext(MyContext)
+  console.log("Meu Contexto => ",data)
+
   return (
     <Container>
       <Logo />
