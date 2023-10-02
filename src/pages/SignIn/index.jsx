@@ -6,10 +6,10 @@ import { Button } from "../../components/Button"
 
 import { Link } from "react-router-dom"
 import { useContext } from "react"
-import { MyContext } from "../../hooks/myContext"
+import { useAuth } from "../../hooks/auth"
 
 export function SignIn() {
-  const data = useContext(MyContext)
+  const data = useAuth()
   console.log("Meu Contexto => ",data)
 
   return (
