@@ -53,9 +53,11 @@ export const Price = styled.div`
     line-height: 100%; /* 16px */
 `
 
-export const Icon = styled.div`
+export const Icon = styled.button`
     position: absolute;
     right: 14px;
+    background: none;
+    border: none;
 
     svg {
         width: 2.4rem;

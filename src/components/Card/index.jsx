@@ -7,33 +7,39 @@ import { Link, useNavigate } from "react-router-dom"
 
 import group1  from "../../assets/Mask group-1.png"
 import { IoIosArrowForward } from "react-icons/io"
-import { AiOutlineLine, AiOutlinePlus, AiOutlineHeart } from "react-icons/ai"
+import { AiOutlineLine, AiOutlinePlus, AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { BsPencil } from "react-icons/bs"
 
 export function Card({ data, title, price, ...rest }) {
     const navigate = useNavigate()
+    const [quantity, setQuantity] = useState(1)
+    const [isFav, setIsFav] = useState(false)
     const isAdmin = false
-    const [quantity, setQuantity] = useState(1);
-
+    
+    
     function handleToDetails() {
         navigate("/details")
     }
     
-    function increase() {
+    const handleFav = () => {
+        setIsFav(!isFav); // Inverte o valor de isFav quando o ícone é clicado
+    }
+    
+    function handleIncrease() {
         if (quantity > 19) {
             alert("Erro: A quantidade máxima é de 20 unidades")
             return;
         }
         setQuantity(count => count + 1);
-    };
+    }
      
-    function decrease() {
+    function handleDecrease() {
         if (quantity < 2) {
             alert("Erro: A quantidade mínima é 1 unidade")
             return;
         }
         setQuantity(count => count - 1);
-    };
+    }
 
     return (
         <Container>
@@ -51,8 +57,15 @@ export function Card({ data, title, price, ...rest }) {
                 </Content>
                 :
                 <Content>
-                <Icon>
-                    <AiOutlineHeart />
+                <Icon 
+                    onClick={handleFav}
+                >
+                    {
+                        isFav ?
+                        <AiFillHeart />
+                        :
+                        <AiOutlineHeart />
+                    }
                 </Icon>
                     
                 <img src={group1} alt="" />
@@ -61,9 +74,13 @@ export function Card({ data, title, price, ...rest }) {
                         
                     <PurchaseCard>
                         <div className="counter">
-                            <AiOutlineLine />
-                                <div id="number">01</div>
-                            <AiOutlinePlus />
+                            <AiOutlineLine 
+                                onClick={handleDecrease}
+                            />
+                                <div id="number">{quantity}</div>
+                            <AiOutlinePlus 
+                                onClick={handleIncrease}
+                            />
                         </div>
                         <Button 
                             onClick={handleToDetails}
