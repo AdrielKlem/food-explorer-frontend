@@ -9,6 +9,23 @@ export const Container = styled.div`
         padding: 1.2rem;
         margin-bottom: 1.2rem;
     }
+
+    .swiper {
+        width: 100%;
+        margin-bottom: 3.2rem;
+    }
+
+    .swiper-slide {
+        width: 100%;
+        margin-right: 40px;
+
+        font-size: 18px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.6rem;       
+    }
 `
 
 export const Banner = styled.div`
@@ -49,13 +66,6 @@ export const Banner = styled.div`
 `
 
 export const Section = styled.div`
-    .section {
-        display: flex;
-        align-items: center;
-        gap: 1.6rem;
-        overflow: auto;
-    }
-
     h2 {
         color: var(--light-light-300, #E1E1E6);
         font-family: Poppins;
@@ -64,43 +74,6 @@ export const Section = styled.div`
         font-weight: 500;
         line-height: 140%; /* 25.2px */
         margin-bottom: 1.6rem;
-    }
-`
-
-export const Card = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.6rem;
-
-    min-width: 20.5rem;
-    min-height: 30rem;
-    padding: 2.4rem 1.6rem;
-
-    border-radius: 8px;
-    border: 1px solid var(--dark-dark-300, #000204);
-    background: var(--dark-dark-200, #00070A);
-
-    position: relative;
-
-
-    img {
-        width: 8.1rem;
-        height: 8.1rem;
-    }
-
-    > h3 {
-        display: flex;
-        align-items: center;
-
-        color: var(--light-light-300, #E1E1E6);
-
-        /* Poppins/100-medium */
-        font-family: Poppins;
-        font-size: 1.6rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 2.4rem; /* 171.429% */
     }
 `
 
