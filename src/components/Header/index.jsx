@@ -10,9 +10,8 @@ import { PiReceipt } from "react-icons/pi"
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 
 export function Header() {
-  const { signOut } = useAuth()
+  const { user, signOut } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false);
-  const isAdmin = true
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -31,7 +30,7 @@ export function Header() {
                   icon={GoSearch}
                   placeholder={"Busque por pratos ou ingredientes"}
                 />
-                {isAdmin ? <MenuOption to="/new">Novo prato</MenuOption> : null }
+                {user.isAdmin ? <MenuOption to="/new">Novo prato</MenuOption> : null }
                 <MenuOption onClick={signOut}>
                     Sair
                 </MenuOption>
@@ -40,7 +39,7 @@ export function Header() {
           : <AiOutlineMenu onClick={toggleMenu} />
         }
         {   menuOpen ? null : <Logo className="logo" />}
-        {   menuOpen ? null : isAdmin ? <span>Admin</span> : <PiReceipt /> }
+        {   menuOpen ? null : user.isAdmin ? <span>Admin</span> : <PiReceipt /> }
     </Container>
   );
 }
