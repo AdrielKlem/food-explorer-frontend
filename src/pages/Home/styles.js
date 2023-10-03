@@ -11,20 +11,27 @@ export const Container = styled.div`
     }
 
     .swiper {
-        width: 100%;
         margin-bottom: 3.2rem;
     }
 
+
+
     .swiper-slide {
-        width: 100%;
-        margin-right: 40px;
+        width: none;
+    }
 
-        font-size: 18px;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1.6rem;       
+    @media (max-width: 500px) {
+        .swiper-wrapper {
+
+        }
+    }
+
+    @media (min-width: 500px) {
+        .swiper-wrapper {
+            display: flex;
+            gap: 1.6rem;
+        }
     }
 `
 
@@ -37,8 +44,6 @@ export const Banner = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-
 
     img {
         width: 18rem;

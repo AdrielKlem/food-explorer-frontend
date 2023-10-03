@@ -2,20 +2,21 @@ import { Container, Content, Icon, Price, PurchaseCard } from "./styles"
 
 import { Button } from "../../components/Button"
 
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "../../hooks/auth";
 
 import group1  from "../../assets/Mask group-1.png"
+
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"
 import { IoIosArrowForward } from "react-icons/io"
 import { AiOutlineLine, AiOutlinePlus, AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { BsPencil } from "react-icons/bs"
 
 export function Card({ data, title, price, ...rest }) {
-    const navigate = useNavigate()
+    const { user } = useAuth()
     const [quantity, setQuantity] = useState(1)
     const [isFav, setIsFav] = useState(false)
-    const isAdmin = false
-    
+    const navigate = useNavigate()
     
     function handleToDetails() {
         navigate("/details")
@@ -44,7 +45,7 @@ export function Card({ data, title, price, ...rest }) {
     return (
         <Container>
             {
-                isAdmin ? 
+                user.isAdmin ? 
                 <Content>
                     <Icon>
                         <Link to="/change">
