@@ -48,7 +48,7 @@ function AuthProvider({ children }) {
     }, [])
 
     return(
-        <AuthContext.Provider value={{ signIn, user: data.user }}>
+        <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
             {children}
         </AuthContext.Provider> 
     )
@@ -60,4 +60,4 @@ function useAuth() {
     return context
 }
 
-export { AuthContext, AuthProvider , useAuth}
+export { AuthContext, AuthProvider, useAuth}

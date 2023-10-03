@@ -1,14 +1,16 @@
-import { useState } from "react"
-
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
-import { PiReceipt } from "react-icons/pi"
-import { GoSearch } from "react-icons/go"
-
 import { Container, Menu, MenuHeader, MenuBody, MenuOption } from "./styles"
 import { Input } from "../Input"
 import { Logo } from "../Logo"
 
+import { useAuth } from "../../hooks/auth"
+
+import { useState } from "react"
+import { GoSearch } from "react-icons/go"
+import { PiReceipt } from "react-icons/pi"
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
+
 export function Header() {
+  const { signOut } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false);
   const isAdmin = true
 
@@ -30,7 +32,7 @@ export function Header() {
                   placeholder={"Busque por pratos ou ingredientes"}
                 />
                 {isAdmin ? <MenuOption to="/new">Novo prato</MenuOption> : null }
-                <MenuOption>
+                <MenuOption onClick={signOut}>
                     Sair
                 </MenuOption>
               </MenuBody>
