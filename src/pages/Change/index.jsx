@@ -10,8 +10,6 @@ import { IngredientsItem } from "../../components/IngredientsItem"
 import { PiCaretLeft } from "react-icons/pi"
 import { BsUpload } from "react-icons/bs"
 
-import dishPicture from "../../assets/Mask group-1.png"
-
 import { useNavigate } from "react-router-dom"
 
 import { useState } from "react";
@@ -46,6 +44,7 @@ export function Change() {
                 onClick={handleBack}
                 title="Voltar"
                 />
+                <h1>Mudar o prato</h1>
             </header>
              <Form>
                 <Picture>
@@ -70,12 +69,26 @@ export function Change() {
                 />
 
                 <div className="ingredients">
+                    {
+                        ingredients.map((ingredient, index) => (
+                            <IngredientsItem 
+                                key={String(index)} 
+                                value={ingredient} 
+                                onClick={() => handleRemoveIngredient(ingredient) }
+                                
+                            />
+                        ))
+                    }
+
                     <IngredientsItem
                         value={"Sabão"}
                     />
                      <IngredientsItem
                         isnew
-                        placeholder="Novo Link"
+                        placeholder="Adicionar Ingrediente"
+                        onChange={e => setNewIngredient(e.target.value)}
+                        value={newIngredient}
+                        onClick={handleAddIngredient}
                     />
                 </div>
 

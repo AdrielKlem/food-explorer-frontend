@@ -8,7 +8,6 @@ import { Footer } from "../../components/Footer"
 import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai"
 import { PiCaretLeft } from "react-icons/pi"
 
-import dishPicture from "../../assets/Mask group-1.png"
 import { useNavigate } from "react-router-dom"
 
 

@@ -4,8 +4,6 @@ import { Button } from "../../components/Button"
 
 import { useAuth } from "../../hooks/auth";
 
-import group1  from "../../assets/Mask group-1.png"
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { IoIosArrowForward } from "react-icons/io"
@@ -57,7 +55,7 @@ export function Card({ data, ...rest }) {
                             <BsPencil  />
                         </Link>
                     </Icon>
-                    <img src={group1} alt="" />
+                    <img src={data.picture} alt={`Foto de ${data.name}`} />
                     <h3>{data.name} <IoIosArrowForward /></h3>
                     <Price>{value}</Price>   
                 </Content>
@@ -74,7 +72,7 @@ export function Card({ data, ...rest }) {
                     }
                 </Icon>
                     
-                <img src={group1} alt="" />
+                <img src={data.picture} alt={`Foto de ${data.name}`} />
                 <h3>{data.name} <IoIosArrowForward /></h3>
                 <Price>{value}</Price>
                         

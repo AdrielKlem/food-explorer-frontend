@@ -75,12 +75,12 @@ export function Home() {
                         >
                             {
                                 dishes.filter(dish => dish.category === "Refeição")
-                                .map((dish, index) => (
+                                .map((item, index) => (
                                     <SwiperSlide
                                         key={String(index)}
                                     >
                                         <Card
-                                            data={dish}
+                                            data={item}
                                         />
                                     </SwiperSlide>
                                 ))
@@ -119,7 +119,7 @@ export function Home() {
                             className="mySwiper section"
                         >
                             {
-                                dishes.filter(dish => dish.category === "Refeição")
+                                dishes.filter(dish => dish.category === "Sobremesa")
                                 .map((dish, index) => (
                                     <SwiperSlide
                                         key={String(index)}
@@ -164,7 +164,7 @@ export function Home() {
                             className="mySwiper section"
                         >
                             {
-                                dishes.filter(dish => dish.category === "Refeição")
+                                dishes.filter(dish => dish.category === "Lanche")
                                 .map((dish, index) => (
                                     <SwiperSlide
                                         key={String(index)}

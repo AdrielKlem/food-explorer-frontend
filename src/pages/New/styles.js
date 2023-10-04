@@ -2,7 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     header {
-        margin: 3rem 2rem  0 0;
+        margin-top: 3rem;
+        margin-left: 3rem;
+
+        h1 {
+            margin-top: 1.8rem;
+        }
     }
 `
 
@@ -66,9 +71,12 @@ export const Form = styled.form`
             }   
         }
 
-        .ingredients {
-            display: flex;
-        }
+    }
+
+    .ingredients {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
     }
 `
 
