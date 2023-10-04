@@ -27,12 +27,12 @@ export function Card({ data, ...rest }) {
         navigate("/details")
     }
     
-    function handleToChange() {
-        navigate("/change")   
+    function handleToChange(id) {
+        navigate(`/change/${id}`)   
     }
 
     const handleFav = () => {
-        setIsFav(!isFav); // Inverte o valor de isFav quando o ícone é clicado
+        setIsFav((prevIsFav) => !prevIsFav)
     }
     
     function handleIncrease() {
@@ -57,17 +57,18 @@ export function Card({ data, ...rest }) {
                 user.isAdmin ? 
                 <Content>
                     <Icon>
-                        <Link to="/change">
+                        <button 
+                        onClick={() => handleToChange(data.id)}
+                        >
                             <BsPencil  />
-                        </Link>
+                        </button>
                     </Icon>
                     <img src={pictureURL} alt={`Foto de ${data.name}`} />
                     <h3>{data.name} <IoIosArrowForward /></h3>
                     <Price>{value}</Price>
                     <ButtonArea>
                         <Button 
-                            onClick={handleToChange}
-                            
+                            onClick={() => handleToChange(data.id)}
                             title={"Editar"}
                             />   
                     </ButtonArea>

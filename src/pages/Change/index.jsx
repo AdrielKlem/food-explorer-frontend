@@ -11,15 +11,21 @@ import { PiCaretLeft } from "react-icons/pi"
 import { BsUpload } from "react-icons/bs"
 
 import { api } from "../../services/api";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom"
 
 
 export function Change() {
     const navigate = useNavigate()
 
+    const params = useParams();
+
     const [ingredients, setIngredients] = useState([]);
     const [newIngredient, setNewIngredient] = useState("");
+    
+    const [data, setData] = useState(null);
+
+    const pictureURL = data && `${api.defaults.baseURL}/files/${data.picture}`
     
     const [picture, setPicture ] = useState(null)
     const [pictureFile, setPictureFile ] = useState(null)
@@ -41,6 +47,14 @@ export function Change() {
 
     function handleRemoveIngredient(deleted){
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    }
+    
+    function handleChangePicture(event) {
+    const file = event.target.files[0]
+    setPictureFile(file)
+
+    const imagePreview = URL.createObjectURL(file)
+    setPicture(imagePreview)
     }
 
     async function handleNewDish() {
@@ -85,29 +99,53 @@ export function Change() {
             formData.append("ingredients", ingredient)
         ))
 
-        await api.post("/dishes", formData)
-        .then(alert("Prato foi adicionado com sucesso!"), handleBack())
+        await api.post(`/dishes/${params.id}`, formData)
+        .then(alert("Prato foi atualizado com sucesso!!"), handleBack())
         .catch((error) => {
             if (error.response) {
                 alert(error.response.data.message);
             } else {
-                alert("Erro ao criar o prato!");
+                alert("Erro ao atualizar o prato!");
             }
         });
     }
 
-
-    function handleChangePicture(event) {
-    const file = event.target.files[0]
-    setPictureFile(file)
-
-    const imagePreview = URL.createObjectURL(file)
-    setPicture(imagePreview)
+    async function handleRemoveDish() {
+        setLoadingDelete(true);
+        const isConfirm = confirm("Tem certeza que deseja remover este item?");
+    
+        if(isConfirm) {
+            await api.delete(`/dishes/${params.id}`)
+            .then(() => {
+                alert("Item removido com sucesso!");
+                navigate("/");
+                setLoadingDelete(false);
+            })
+        } else {
+            return
+        }
     }
+
 
     function handleBack() {
         navigate(-1)
     }
+
+    useEffect(() => {
+        async function fetchDish() {
+            const response = await api.get(`/dishes/${params.id}`)
+            setData(response.data);
+            
+            const { name, description, category, price, ingredients } = response.data;
+            setName(name);
+            setDescription(description);
+            setCategory(category);
+            setPrice(price);
+            setIngredients(ingredients.map(ingredient => ingredient.name));
+        }
+
+        fetchDish()
+    }, [])
 
     return (
         <Container>
@@ -124,7 +162,7 @@ export function Change() {
                 <Picture>
                   { picture &&
                     <img 
-                    src={picture}
+                    src={picture ? picture : pictureUrl}
                     alt="Foto do prato" />}
 
                     <label htmlFor="picture">
@@ -198,10 +236,16 @@ export function Change() {
                         >
                     </textarea>
                 </div>
-                <Button 
-                    title={"Salvar Alterações"}
-                    onClick={handleNewDish}
-                />
+                 <div className="buttons">
+                    <Button id={"remove"}
+                        title={"Excluir"}
+                        onClick={handleBack}
+                    />
+                    <Button
+                        title={"Salvar Alterações"}
+                        onClick={handleBack}
+                    />
+                </div>
              </Form>
             <Footer />
         </Container>

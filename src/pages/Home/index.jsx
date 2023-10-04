@@ -50,7 +50,7 @@ export function Home() {
                             centeredSlides={false}
                             grabCursor={true}
                             loop={true}
-                            loopfillgroupwithblank={true}
+                            loopfillgroupwithblank={true.toString()}
                             breakpoints={{
                                 "@0.00": {
                                     slidesPerView: 1,
@@ -95,7 +95,7 @@ export function Home() {
                             centeredSlides={false}
                             grabCursor={true}
                             loop={true}
-                            loopfillgroupwithblank={true}
+                            loopfillgroupwithblank={true.toString()}
                             breakpoints={{
                                 "@0.00": {
                                     slidesPerView: 1,
@@ -140,7 +140,7 @@ export function Home() {
                             centeredSlides={false}
                             grabCursor={true}
                             loop={true}
-                            loopfillgroupwithblank={true}
+                            loopfillgroupwithblank={true.toString()}
                             breakpoints={{
                                 "@0.00": {
                                     slidesPerView: 1,

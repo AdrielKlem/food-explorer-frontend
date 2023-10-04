@@ -71,9 +71,12 @@ export const Form = styled.form`
             }   
         }
 
-        .ingredients {
-            display: flex;
-        }
+    }
+
+    .ingredients {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
     }
 
     .buttons {

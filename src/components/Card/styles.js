@@ -39,6 +39,11 @@ export const Content = styled.div`
         font-weight: 500;
         line-height: 2.4rem; /* 171.429% */
     }
+
+    button {
+        border: none;
+        background: none;
+    }
 `
 
 export const Price = styled.div`
