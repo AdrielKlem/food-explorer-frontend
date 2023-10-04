@@ -1,9 +1,10 @@
-import { Container, Content, Icon, Price, PurchaseCard } from "./styles"
+import { Container, Content, Icon, Price, ButtonArea } from "./styles"
 
 import { Button } from "../../components/Button"
 
 import { useAuth } from "../../hooks/auth";
 
+import { api } from "../../services/api";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { IoIosArrowForward } from "react-icons/io"
@@ -12,6 +13,7 @@ import { BsPencil } from "react-icons/bs"
 
 export function Card({ data, ...rest }) {
     const { user } = useAuth()
+    const pictureURL = data.picture ? `${api.defaults.baseURL}/files/${data.picture}` : imagePlaceholder;
     const [quantity, setQuantity] = useState(1)
     const [isFav, setIsFav] = useState(false)
     const navigate = useNavigate()
@@ -25,6 +27,10 @@ export function Card({ data, ...rest }) {
         navigate("/details")
     }
     
+    function handleToChange() {
+        navigate("/change")   
+    }
+
     const handleFav = () => {
         setIsFav(!isFav); // Inverte o valor de isFav quando o ícone é clicado
     }
@@ -55,9 +61,16 @@ export function Card({ data, ...rest }) {
                             <BsPencil  />
                         </Link>
                     </Icon>
-                    <img src={data.picture} alt={`Foto de ${data.name}`} />
+                    <img src={pictureURL} alt={`Foto de ${data.name}`} />
                     <h3>{data.name} <IoIosArrowForward /></h3>
-                    <Price>{value}</Price>   
+                    <Price>{value}</Price>
+                    <ButtonArea>
+                        <Button 
+                            onClick={handleToChange}
+                            
+                            title={"Editar"}
+                            />   
+                    </ButtonArea>
                 </Content>
                 :
                 <Content>
@@ -72,26 +85,25 @@ export function Card({ data, ...rest }) {
                     }
                 </Icon>
                     
-                <img src={data.picture} alt={`Foto de ${data.name}`} />
+                <img src={pictureURL} alt={`Foto de ${data.name}`} />
                 <h3>{data.name} <IoIosArrowForward /></h3>
                 <Price>{value}</Price>
-                        
-                    <PurchaseCard>
-                        <div className="counter">
-                            <AiOutlineLine 
-                                onClick={handleDecrease}
-                            />
-                                <div id="number">{quantity}</div>
-                            <AiOutlinePlus 
-                                onClick={handleIncrease}
-                            />
-                        </div>
-                        <Button 
-                            onClick={handleToDetails}
-                            
-                            title={"incluir"}
+                <ButtonArea>
+                    <div className="counter">
+                        <AiOutlineLine 
+                            onClick={handleDecrease}
                         />
-                    </PurchaseCard>
+                            <div id="number">{quantity}</div>
+                        <AiOutlinePlus 
+                            onClick={handleIncrease}
+                        />
+                    </div>
+                    <Button 
+                        onClick={handleToDetails}
+                        
+                        title={"incluir"}
+                    />
+                </ButtonArea>
                 </Content>
             }
         </Container>

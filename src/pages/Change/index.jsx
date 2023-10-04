@@ -10,17 +10,92 @@ import { IngredientsItem } from "../../components/IngredientsItem"
 import { PiCaretLeft } from "react-icons/pi"
 import { BsUpload } from "react-icons/bs"
 
-import { useNavigate } from "react-router-dom"
-
+import { api } from "../../services/api";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 
 export function Change() {
     const navigate = useNavigate()
 
-    const pictureUrl = null
+    const [ingredients, setIngredients] = useState([]);
+    const [newIngredient, setNewIngredient] = useState("");
+    
     const [picture, setPicture ] = useState(null)
-    const [pcitureFile, setPictureFile ] = useState(null)
+    const [pictureFile, setPictureFile ] = useState(null)
+
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [category, setCategory] = useState("");
+
+
+    function handleAddIngredient() {
+        if (newIngredient.length < 3) {
+            return alert("Erro: Você está tentando inserir um nome de ingrediente inválido!");
+        } else {
+            setIngredients(prevState => [...prevState, newIngredient]);
+            setNewIngredient("");
+        }
+    }
+
+    function handleRemoveIngredient(deleted){
+        setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
+    }
+
+    async function handleNewDish() {
+        if (!pictureFile) {
+            return alert("Erro: Você não inseriu uma imagem para o prato!");
+        }
+        
+        if (!name) {
+            return alert("Erro: Você não informou o nome do prato!");
+        }
+
+        if (ingredients.length < 1) {
+            return alert("Erro: Adicione pelo menos um ingrediente!")
+        }
+
+        if (newIngredient) {
+            return alert("Erro: Você deixou um ingrediente no campo para adicionar, mas não clicou em adicionar. Clique no sinal de + para adicionar!");
+        }
+
+        if (!category) {
+            return alert("Erro: Você não selecionou a categoria do prato!");
+        }
+
+        if (!price) {
+            console.log(category)
+            return alert("Erro: Você não informou o preço do prato!");
+        }
+
+        if (!description) {
+            return alert("Erro: Você não informou uma descrição para o prato!");
+        }
+
+        const formData = new FormData();
+
+        formData.append("picture", pictureFile);
+        formData.append("name", name);
+        formData.append("description", description);
+        formData.append("category", category);
+        formData.append("price", price);
+
+        ingredients.map(ingredient => (
+            formData.append("ingredients", ingredient)
+        ))
+
+        await api.post("/dishes", formData)
+        .then(alert("Prato foi adicionado com sucesso!"), handleBack())
+        .catch((error) => {
+            if (error.response) {
+                alert(error.response.data.message);
+            } else {
+                alert("Erro ao criar o prato!");
+            }
+        });
+    }
+
 
     function handleChangePicture(event) {
     const file = event.target.files[0]
@@ -28,7 +103,6 @@ export function Change() {
 
     const imagePreview = URL.createObjectURL(file)
     setPicture(imagePreview)
-
     }
 
     function handleBack() {
@@ -44,7 +118,7 @@ export function Change() {
                 onClick={handleBack}
                 title="Voltar"
                 />
-                <h1>Mudar o prato</h1>
+                <h1>Editar o prato</h1>
             </header>
              <Form>
                 <Picture>
@@ -56,19 +130,23 @@ export function Change() {
                     <label htmlFor="picture">
                         <BsUpload />
                         Seleciona a imagem
-                        <input 
+                    </label>
+                    <input 
                         id='picture'
+                        name="picture"
+                        accept="image/*"
                         type="file" 
                         onChange={handleChangePicture}
-                        />
-                    </label>
+                    />
                 </Picture>
                 <Input 
                     name={"Nome"}
                     placeholder={"Exemplo de Nome: "}
+                    onChange={event => setName(event.target.value)}
                 />
 
                 <div className="ingredients">
+                    <p>Ingredientes</p>
                     {
                         ingredients.map((ingredient, index) => (
                             <IngredientsItem 
@@ -79,10 +157,6 @@ export function Change() {
                             />
                         ))
                     }
-
-                    <IngredientsItem
-                        value={"Sabão"}
-                    />
                      <IngredientsItem
                         isnew
                         placeholder="Adicionar Ingrediente"
@@ -93,17 +167,24 @@ export function Change() {
                 </div>
 
                 <div className="category">
-                    <label for="escolha">Categoria</label>
-                    <select id="escolha" name="escolha">
-                        <option value="meal">Refeição</option>
-                        <option value="dessert">Sobremesa</option>
-                        <option value="snack">Lanche</option>
+                    <label htmlFor="choose">Categoria</label>
+                    <select 
+                        defaultValue={'default'}
+                        id="choose"
+                        name="choose"
+                        onChange={event => setCategory(event.target.value)}
+                    >
+                        <option value="default" disabled>Selecione a categoria</option>
+                        <option value="Refeição">Refeição</option>
+                        <option value="Sobremesa">Sobremesa</option>
+                        <option value="Lanche">Lanche</option>
                     </select>
                 </div>
                 <Input 
                     name={"Preço"}
                     placeholder={"R$ 00,00"}
                     type={"Number"}
+                    onChange={event => setPrice(event.target.value)}
                 />
                 <div className="desc">
                     <label htmlFor="Description">
@@ -111,21 +192,16 @@ export function Change() {
                     </label>
                     <textarea
                         name={"Description"}
-                        placeholder={"Descrição aqui"}
+                        placeholder={"Fala mais sobre o prato..."}
                         type={"textarea"}
+                        onChange={event => setDescription(event.target.value)}
                         >
                     </textarea>
                 </div>
-                <div className="buttons">
-                    <Button id={"remove"}
-                        title={"Excluir"}
-                        onClick={handleBack}
-                    />
-                    <Button
-                        title={"Salvar Alterações"}
-                        onClick={handleBack}
-                    />
-                </div>
+                <Button 
+                    title={"Salvar Alterações"}
+                    onClick={handleNewDish}
+                />
              </Form>
             <Footer />
         </Container>

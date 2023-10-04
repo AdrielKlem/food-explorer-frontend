@@ -75,7 +75,7 @@ export function New() {
 
         const formData = new FormData();
 
-        formData.append("picture", picture);
+        formData.append("picture", pictureFile);
         formData.append("name", name);
         formData.append("description", description);
         formData.append("category", category);

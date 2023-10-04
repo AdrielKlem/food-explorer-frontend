@@ -67,7 +67,7 @@ export const Icon = styled.button`
     }
 `
 
-export const PurchaseCard = styled.div`
+export const ButtonArea = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
