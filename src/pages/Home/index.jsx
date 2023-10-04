@@ -19,7 +19,6 @@ export function Home() {
     const { user } = useAuth()
     const [search, setSearch] = useState("")
     const [dishes, setDishes] = useState([])
-    console.log(dishes.Refeicao)
 
     useEffect(() => {
         async function fetchDishes() {

@@ -12,11 +12,16 @@ import { IoIosArrowForward } from "react-icons/io"
 import { AiOutlineLine, AiOutlinePlus, AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { BsPencil } from "react-icons/bs"
 
-export function Card({ data, title, price, ...rest }) {
+export function Card({ data, ...rest }) {
     const { user } = useAuth()
     const [quantity, setQuantity] = useState(1)
     const [isFav, setIsFav] = useState(false)
     const navigate = useNavigate()
+    const value = data.price.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+        });
+
     
     function handleToDetails() {
         navigate("/details")
@@ -53,8 +58,8 @@ export function Card({ data, title, price, ...rest }) {
                         </Link>
                     </Icon>
                     <img src={group1} alt="" />
-                    <h3>{title} <IoIosArrowForward /></h3>
-                    <Price>R$ {price}</Price>   
+                    <h3>{data.name} <IoIosArrowForward /></h3>
+                    <Price>{value}</Price>   
                 </Content>
                 :
                 <Content>
@@ -70,8 +75,8 @@ export function Card({ data, title, price, ...rest }) {
                 </Icon>
                     
                 <img src={group1} alt="" />
-                <h3>{title} <IoIosArrowForward /></h3>
-                <Price>R$ {price}</Price>
+                <h3>{data.name} <IoIosArrowForward /></h3>
+                <Price>{value}</Price>
                         
                     <PurchaseCard>
                         <div className="counter">
