@@ -85,6 +85,9 @@ export function New() {
             formData.append("ingredients", ingredient)
         ))
 
+        console.log(formData)
+        console.log(formData.picture)
+
         await api.post("/dishes", formData)
         .then(alert("Prato foi adicionado com sucesso!"), handleBack())
         .catch((error) => {
@@ -122,10 +125,13 @@ export function New() {
             </header>
              <Form>
                 <Picture>
-                  { picture &&
-                    <img 
-                    src={picture}
-                    alt="Foto do prato" />}
+                    { 
+                        picture &&
+                        <img 
+                        src={picture}
+                        alt="Foto do prato"
+                        />
+                    }
 
                     <label htmlFor="picture">
                         <BsUpload />

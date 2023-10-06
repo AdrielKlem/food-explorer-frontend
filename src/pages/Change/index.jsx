@@ -14,7 +14,6 @@ import { api } from "../../services/api";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 
-
 export function Change() {
     const navigate = useNavigate()
 
@@ -27,9 +26,10 @@ export function Change() {
 
     const pictureURL = data && `${api.defaults.baseURL}/files/${data.picture}`
     
-    const [picture, setPicture ] = useState(null)
+    const [picture, setPicture] = useState()
     const [pictureFile, setPictureFile ] = useState(null)
 
+    
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
@@ -48,20 +48,10 @@ export function Change() {
     function handleRemoveIngredient(deleted){
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
     }
-    
-    function handleChangePicture(event) {
-    const file = event.target.files[0]
-    setPictureFile(file)
 
-    const imagePreview = URL.createObjectURL(file)
-    setPicture(imagePreview)
-    }
+    async function handleChangeDish() {
+        console.log(pictureURL)
 
-    async function handleNewDish() {
-        if (!pictureFile) {
-            return alert("Erro: Você não inseriu uma imagem para o prato!");
-        }
-        
         if (!name) {
             return alert("Erro: Você não informou o nome do prato!");
         }
@@ -89,46 +79,51 @@ export function Change() {
 
         const formData = new FormData();
 
-        formData.append("picture", pictureFile);
+        if (pictureFile) {
+            formData.append("picture", pictureFile);
+        }
+
         formData.append("name", name);
         formData.append("description", description);
         formData.append("category", category);
         formData.append("price", price);
+        formData.append("ingredients", ingredients);
 
-        ingredients.map(ingredient => (
-            formData.append("ingredients", ingredient)
-        ))
+        console.log(pictureFile)
 
-        await api.post(`/dishes/${params.id}`, formData)
-        .then(alert("Prato foi atualizado com sucesso!!"), handleBack())
+        await api.put(`/dishes/${params.id}`, formData)
+        .then(alert("Prato foi atualizado com sucesso!"))
         .catch((error) => {
             if (error.response) {
                 alert(error.response.data.message);
             } else {
-                alert("Erro ao atualizar o prato!");
+                alert("Erro ao criar o prato!");
             }
         });
     }
 
+    function handleChangePicture(event) {
+        const file = event.target.files[0]
+        setPictureFile(file)
+        console.log(pictureFile)
+        const imagePreview = URL.createObjectURL(file)
+        setPicture(imagePreview)
+        console.log(picture)
+    }
+
+    function handleBack() {
+        navigate(-1)
+    }
+
     async function handleRemoveDish() {
-        setLoadingDelete(true);
         const isConfirm = confirm("Tem certeza que deseja remover este item?");
     
         if(isConfirm) {
             await api.delete(`/dishes/${params.id}`)
-            .then(() => {
-                alert("Item removido com sucesso!");
-                navigate("/");
-                setLoadingDelete(false);
-            })
+            .then(alert("Prato foi removido com sucesso!!"), handleBack())
         } else {
             return
         }
-    }
-
-
-    function handleBack() {
-        navigate(-1)
     }
 
     useEffect(() => {
@@ -158,13 +153,11 @@ export function Change() {
                 />
                 <h1>Editar o prato</h1>
             </header>
-             <Form>
+             <Form encType="multipart/form-data">
                 <Picture>
-                  { picture &&
                     <img 
-                    src={picture ? picture : pictureUrl}
-                    alt="Foto do prato" />}
-
+                    src={picture ? picture : pictureURL}
+                    alt="Foto do prato" />
                     <label htmlFor="picture">
                         <BsUpload />
                         Seleciona a imagem
@@ -174,12 +167,13 @@ export function Change() {
                         name="picture"
                         accept="image/*"
                         type="file" 
-                        onChange={handleChangePicture}
+                        onChange={(event) => handleChangePicture(event)}
                     />
                 </Picture>
                 <Input 
                     name={"Nome"}
                     placeholder={"Exemplo de Nome: "}
+                    value={name}
                     onChange={event => setName(event.target.value)}
                 />
 
@@ -207,9 +201,9 @@ export function Change() {
                 <div className="category">
                     <label htmlFor="choose">Categoria</label>
                     <select 
-                        defaultValue={'default'}
                         id="choose"
                         name="choose"
+                        value={category}
                         onChange={event => setCategory(event.target.value)}
                     >
                         <option value="default" disabled>Selecione a categoria</option>
@@ -222,6 +216,7 @@ export function Change() {
                     name={"Preço"}
                     placeholder={"R$ 00,00"}
                     type={"Number"}
+                    value={price}
                     onChange={event => setPrice(event.target.value)}
                 />
                 <div className="desc">
@@ -232,6 +227,7 @@ export function Change() {
                         name={"Description"}
                         placeholder={"Fala mais sobre o prato..."}
                         type={"textarea"}
+                        value={description}
                         onChange={event => setDescription(event.target.value)}
                         >
                     </textarea>
@@ -239,11 +235,11 @@ export function Change() {
                  <div className="buttons">
                     <Button id={"remove"}
                         title={"Excluir"}
-                        onClick={handleBack}
+                        onClick={handleRemoveDish}
                     />
                     <Button
                         title={"Salvar Alterações"}
-                        onClick={handleBack}
+                        onClick={handleChangeDish}
                     />
                 </div>
              </Form>
