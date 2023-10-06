@@ -1,28 +1,91 @@
-import { Container, Section, Ingredients, Length } from "./styles"
+import { Container, Section, Ingredients, IngredientsItem, Length } from "./styles"
 
 import { Header } from "../../components/Header"
 import { Button } from "../../components/Button"
 import { ButtonText } from "../../components/ButtonText"
 import { Footer } from "../../components/Footer"
 
+import { useAuth } from "../../hooks/auth"
+import { api } from "../../services/api";
+
 import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai"
 import { PiCaretLeft } from "react-icons/pi"
 
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
 
 
 export function Details() {
-  const navigate = useNavigate()
-  const isAdmin = true
+  const { user } = useAuth()
+  const isAdmin = false
 
-  function handleToChange() {
-        navigate("/details")
-  }
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const [tempDishID, setTempDishID] = useState("");
+  const [quantity, setQuantity] = useState(1)
+
+  const navigate = useNavigate()
+
+  const [data, setData] = useState(null)
+
+  const picture = data && `${api.defaults.baseURL}/files/${data.picture}`
+    
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+
+  function handleToChange(id) {
+        navigate(`/change/${id}`)
+    }
 
   function handleBack() {
         navigate(-1)
   }
 
+  function handleIncrease() {
+    if (quantity > 19) {
+        alert("Erro: A quantidade máxima é de 20 unidades")
+        return;
+    }
+    setQuantity(count => count + 1);
+  }
+
+  function handleDecrease() {
+    if (quantity < 2) {
+        alert("Erro: A quantidade mínima é 1 unidade")
+        return;
+    }
+    setQuantity(count => count - 1);
+  }
+
+  useEffect(() => {
+    const idFromParams = searchParams.get("id");
+    setTempDishID(idFromParams);
+  }, [searchParams]);
+  
+  useEffect(() => {
+    async function fetchDish() {
+      try {
+        const quantityFromParams = Number(searchParams.get("quantity"));
+        setQuantity(quantityFromParams);
+        const response = await api.get(`/dishes/${tempDishID}`);
+        setData(response.data);
+
+        const { name, description, price, ingredients } = response.data;
+        setName(name);
+        setDescription(description);
+        setPrice(price);
+        setIngredients(ingredients.map((ingredient) => ingredient.name));
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    if (tempDishID) {
+      fetchDish();
+    }
+  }, [tempDishID]);
 
   return (
       <Container>
@@ -31,34 +94,44 @@ export function Details() {
            <header>
             <PiCaretLeft />
              <ButtonText
-             onClick={handleBack}
+             onClick={() => handleBack()}
               title="Voltar"
               />
            </header>
-           <img src={dishPicture} alt="" />
+           <img src={picture} alt={`Foto de ${name}`} />
             <div className="desc">
-              <h1>Salada Ravanello</h1>
-              <p>Rabanetes, Folhas verdes e molho agridoce salpicados com gergelim</p>
+              <h1>{name}</h1>
+              <p>{description}</p>
             </div>
             <Ingredients>
-              <span>Alface</span>
-              <span>Cebola</span>
-              <span>Pão naan</span>
-              <span>Pepino</span>
-              <span>Rabanete</span>
-              <span>Tomate</span>
+              {
+                ingredients.map((ingredient, index) => (
+                    <IngredientsItem 
+                      key={String(index)} 
+                    >
+                      {ingredient} 
+                    </IngredientsItem>
+                ))
+              }
             </Ingredients>
             <Length>
              {
-              isAdmin ?
+              user.isAdmin ?
               <Button
-                  onClick={handleToChange}
+                  onClick={() => handleToChange(data.id)}
                   title={"Editar o Prato"}
               />
               :
               <>
-                <AiOutlineLine /><div id="number">01</div><AiOutlinePlus />
+                <AiOutlineLine 
+                    onClick={() => handleDecrease()}
+                />
+                    <div id="number">{Number(quantity)}</div>
+                <AiOutlinePlus 
+                    onClick={() => handleIncrease()}
+                />
                  <Button 
+                  onClick={() => alert("Indisponivel")}
                   title={"Comprar"}
               />
               </>

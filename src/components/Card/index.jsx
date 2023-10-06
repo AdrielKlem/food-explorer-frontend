@@ -13,22 +13,25 @@ import { BsPencil } from "react-icons/bs"
 
 export function Card({ data, ...rest }) {
     const { user } = useAuth()
+
     const pictureURL = data.picture ? `${api.defaults.baseURL}/files/${data.picture}` : imagePlaceholder;
+
     const [quantity, setQuantity] = useState(1)
     const [isFav, setIsFav] = useState(false)
-    const navigate = useNavigate()
+
     const value = data.price.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL'
         });
 
+    const navigate = useNavigate()
     
-    function handleToDetails() {
-        navigate("/details")
+    function handleToDetails(id, quantity = 1) {
+        navigate(`/details?id=${id}&quantity=${quantity}`)
     }
     
     function handleToChange(id) {
-        navigate(`/change/${id}`)   
+        navigate(`/change/${id}`)
     }
 
     const handleFav = () => {
@@ -64,7 +67,13 @@ export function Card({ data, ...rest }) {
                         </button>
                     </Icon>
                     <img src={pictureURL} alt={`Foto de ${data.name}`} />
-                    <h3>{data.name} <IoIosArrowForward /></h3>
+                    <ButtonArea
+                        onClick={() => handleToDetails(data.id)}
+                    >
+                        <h3>
+                            {data.name} <IoIosArrowForward />
+                        </h3>
+                    </ButtonArea>
                     <Price>{value}</Price>
                     <ButtonArea>
                         <Button 
@@ -87,21 +96,26 @@ export function Card({ data, ...rest }) {
                 </Icon>
                     
                 <img src={pictureURL} alt={`Foto de ${data.name}`} />
-                <h3>{data.name} <IoIosArrowForward /></h3>
+                <ButtonArea
+                    onClick={() => handleToDetails(data.id, quantity)}
+                >
+                    <h3>
+                        {data.name} <IoIosArrowForward />
+                    </h3>
+                </ButtonArea>
                 <Price>{value}</Price>
                 <ButtonArea>
                     <div className="counter">
                         <AiOutlineLine 
-                            onClick={handleDecrease}
+                            onClick={() => handleDecrease()}
                         />
                             <div id="number">{quantity}</div>
                         <AiOutlinePlus 
-                            onClick={handleIncrease}
+                            onClick={() => handleIncrease()}
                         />
                     </div>
                     <Button 
-                        onClick={handleToDetails}
-                        
+                        onClick={() => handleToDetails(data.id, quantity)}
                         title={"incluir"}
                     />
                 </ButtonArea>

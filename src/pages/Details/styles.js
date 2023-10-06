@@ -51,20 +51,19 @@ export const Ingredients = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.8rem;
     margin-bottom: 1.6rem;
+`
 
-    span {
-        background: var(--dark-dark-1000, #192227);
+export const IngredientsItem = styled.span`
+    background: var(--dark-dark-1000, #192227);
 
-        color: var(--light-light-100, #FFF);
-        text-align: center;
-        border-radius: 5px;
-        /* Poppins/100-medium */
-        font-family: Poppins;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 24px; /* 171.429% */
-    }
+    color: var(--light-light-100, #FFF);
+    text-align: center;
+    border-radius: 5px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
 `
 
 export const Length = styled.div`
