@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     position: relative;
-`;
+`
 
 export const Content = styled.div`
     display: flex;
@@ -26,49 +26,55 @@ export const Content = styled.div`
         height: 8.1rem;
     }
 
-    > h3 {
+    h3 {
         display: flex;
         align-items: center;
 
-        color: var(--light-light-300, #E1E1E6);
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
-        /* Poppins/100-medium */
-        font-family: Poppins;
+        font-family: ${({ theme }) => theme.FONT_FAMILY.POPPINS};
         font-size: 1.6rem;
         font-style: normal;
         font-weight: 500;
-        line-height: 2.4rem; /* 171.429% */
+        line-height: 2.4rem;
     }
 
-    button {
-        border: none;
-        background: none;
-    }
-`
+    `
 
 export const Price = styled.div`
-    color: var(--tints-cake-200, #82F3FF);
-    text-align: center;
-
-    /* Roboto/Small regular */
-    font-family: Roboto;
+    color: ${({ theme }) => theme.COLORS.CAKE_200};
+    
+    font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO};
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 100%; /* 16px */
-`
+    line-height: 100%;
+
+    text-align: center;
+    `
 
 export const Icon = styled.button`
-    position: absolute;
-    right: 14px;
     background: none;
     border: none;
+    
+    position: absolute;
+    right: 14px;
 
     svg {
         width: 2.4rem;
         height: 2.2rem;    
         
-        color: var(--light-light-300, #E1E1E6);
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+
+        transition: color .5s;
+        &:hover {
+            color: ${({ theme }) => theme.COLORS.CAKE_200};
+        }
+    }
+    
+    > button {
+        border: none;
+        background: none;
     }
 `
 
@@ -77,11 +83,6 @@ export const ButtonArea = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1.6rem;
-
-    button {
-        height: 5.6rem;
-        max-width: 12.6rem;
-    }
     
     .counter {
         display: flex;
@@ -106,9 +107,8 @@ export const ButtonArea = styled.div`
     }
 
     p {
-        font-weight: 700;
-        line-height: 160%;
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        font-weight: 700;
         text-align: center;
     }
 `

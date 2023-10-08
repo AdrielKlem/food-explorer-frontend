@@ -34,9 +34,11 @@ export function Home() {
         <main>
             <Banner>
                 <img src={banner} alt="foto de frutas" />
-                <div>
-                    <h1>Sabores inigualáveis</h1>
-                    <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
+                <div className="banner">
+                    <div className="title-banner">
+                        <h1>Sabores inigualáveis</h1>
+                        <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
+                    </div>
                 </div>
             </Banner>
  

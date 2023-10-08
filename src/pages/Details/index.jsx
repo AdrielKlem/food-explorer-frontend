@@ -35,6 +35,11 @@ export function Details() {
   const [price, setPrice] = useState("");
   const [ingredients, setIngredients] = useState([]);
 
+  const value = (price*quantity).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+  });
+
   function handleToChange(id) {
         navigate(`/change/${id}`)
     }
@@ -132,7 +137,7 @@ export function Details() {
                 />
                  <Button 
                   onClick={() => alert("Indisponivel")}
-                  title={"Comprar"}
+                  title={`Comprar (${value})`}
               />
               </>
              }

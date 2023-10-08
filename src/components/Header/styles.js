@@ -15,10 +15,36 @@ export const Container = styled.div`
     svg {
         height: 3.2rem;
         width: 3.2rem;
+        color: ${({ theme }) => theme.COLORS.CAKE_200};
     }
 
     span {
         color: ${({ theme }) => theme.COLORS.CAKE_200};
+    }
+
+    .logo {
+        > h1 {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    @media (min-width: 680px) {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: 2fr 3fr 2fr 1fr;
+
+
+        .order {
+            background: none;
+            border: none;
+        }
+
+        .Nome {
+            width: 100%;
+            margin-right: 1.6rem;
+        }
     }
 `
 

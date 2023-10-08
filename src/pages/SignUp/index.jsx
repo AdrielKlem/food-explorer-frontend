@@ -1,6 +1,6 @@
 import { Container, Form } from "./styles"
 
-import { Logo } from "../../components/Logo"
+import { LogoAuth } from "../../components/LogoAuth"
 import { Input } from "../../components/Input"
 import { Button } from "../../components/Button"
 
@@ -40,7 +40,7 @@ export function SignUp() {
   return (
 
     <Container>
-      <Logo />
+      <LogoAuth />
       
       <Form>
         <h2>Cria sua conta</h2>

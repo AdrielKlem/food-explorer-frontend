@@ -1,6 +1,6 @@
 import { Container, LogoSimbol } from "./styles"
 
-export function Logo() {
+export function LogoApp() {
     return(
     <Container>
         <LogoSimbol />

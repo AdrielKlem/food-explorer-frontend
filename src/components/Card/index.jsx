@@ -116,7 +116,7 @@ export function Card({ data, ...rest }) {
                     </div>
                     <Button 
                         onClick={() => handleToDetails(data.id, quantity)}
-                        title={"incluir"}
+                        title={"Incluir"}
                     />
                 </ButtonArea>
                 </Content>

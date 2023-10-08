@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: ${({ $Icon }) => $Icon ? "row" : "column"};
+    align-items: ${({ $Icon }) => $Icon ? "center" : "none" };
     gap: .8rem;
     
+    background-color: ${({ $Icon, theme }) => $Icon ? theme.COLORS.DARK_900 : "none"};
     font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO};
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     
     width: 100%;
 
-    margin-bottom: 8px;
     border-radius: 10px;
 
     > label {

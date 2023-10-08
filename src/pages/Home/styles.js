@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../styles/theme";
 
 
 export const Container = styled.div`
@@ -36,30 +37,39 @@ export const Container = styled.div`
 `
 
 export const Banner = styled.div`
-    background: var(--gradients-200, linear-gradient(180deg, #091E26 0%, #00131C 100%));
     width: 100%;
     height: clamp(10rem, 5vw + 12.4rem , 20rem);
     margin: 3.2rem auto;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 
     img {
-        width: 18rem;
-        height: 14rem;
-
+        width: clamp(12rem, 26vw + 4rem, 20rem);
+        height: clamp(10rem, 24vh + 2rem, 18rem);
         position: absolute;
-        left: -0.8rem;
+        left: -12px;
+        bottom: 0rem;
     }
-
-    > div {
+    
+    .banner {
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-        width: 18.5rem;
-
-
+        justify-content: center;
+        align-items: end;
+        
+        background: ${({ theme }) => theme.COLORS.GRADIENT_1};
+        width: 100%;
+        height: 100%;       
+    }
+    
+    .title-banner {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        width: 22rem;
+        padding: 0 1.2rem;
+        
         h1 {
             font-size: 2rem;
         }
@@ -72,7 +82,7 @@ export const Banner = styled.div`
 
 export const Section = styled.div`
     h2 {
-        color: var(--light-light-300, #E1E1E6);
+        color:  ${({ theme }) => theme.COLORS.LIGHT_300};
         font-family: Poppins;
         font-size: 18px;
         font-style: normal;

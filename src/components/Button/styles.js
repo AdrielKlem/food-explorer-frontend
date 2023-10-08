@@ -7,10 +7,10 @@ export const Container = styled.button`
     color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
     width: 100%;
-    height: clamp(1.6rem, 1vw + 3.2rem, 5.4rem);
+    height: clamp(2.6rem, 1vw + 3.5rem, 6.4rem);
     padding: 0 1.6rem;
 
-    font-size: clamp(0.4rem, 1vw + .8rem , 1.6rem);
+    font-size: clamp(0.8rem, 1.6rem , 1.8rem);
     font-weight: 500;
 
     border: 0;
