@@ -8,7 +8,7 @@ export const Container = styled.div`
 
     > h1 {
         font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO};
-        font-size: clamp(0.6rem, 1vw + .8rem , 2.4rem);
+        font-size: clamp(.8rem, 1vw + 1.6rem , 2rem);
         font-style: normal;
         font-weight: 700;
         line-height: normal;
@@ -20,5 +20,5 @@ export const LogoSimbol = styled.div`
     background-size: cover;
     
     width: clamp(2rem, 1vw + 3rem , 5rem);
-    height: clamp(2rem, 1vw + 3rem , 5rem);
+    height: clamp(2.5rem, 1vw + 3.5rem , 5.5rem);
 `

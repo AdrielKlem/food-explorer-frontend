@@ -92,7 +92,7 @@ export function Change() {
         console.log(pictureFile)
 
         await api.put(`/dishes/${params.id}`, formData)
-        .then(alert("Prato foi atualizado com sucesso!"))
+        .then(alert("Prato foi atualizado com sucesso!"), handleBack())
         .catch((error) => {
             if (error.response) {
                 alert(error.response.data.message);

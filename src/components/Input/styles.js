@@ -15,7 +15,7 @@ export const Container = styled.div`
     border-radius: 10px;
 
     > label {
-        font-size: clamp(0.8rem, 2vw + 0.6rem, 1.6rem);
+        font-size: 1.6rem;
     }
 
     > input {
@@ -28,8 +28,7 @@ export const Container = styled.div`
         
         border: 0;
         border-radius: 1rem;
-        font-size: clamp(0.8rem, 1vw + 0.6rem, 1.6rem);
-
+        font-size: 1.6rem;
 
         &:placeholder {
             color: ${({ theme }) => theme.COLORS.LIGHT_500};

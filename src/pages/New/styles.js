@@ -13,20 +13,24 @@ export const Container = styled.div`
 
 export const Form = styled.form`
     max-width: 340px;
-    margin: 30px auto;
+    margin: 3rem auto 10rem;
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
 
+    .name {
+        grid-area: name;
+    }
+
     .category {
+        grid-area: category;
         display: flex;
         flex-direction: column;
         gap: 0.8rem;
         
-        font-size: clamp(0.8rem, 2vw + 0.6rem, 1.6rem);
+        font-size: 1.6rem;
 
         select {
-            
             background-color: ${({ theme }) => theme.COLORS.DARK_900};
             color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
@@ -45,15 +49,14 @@ export const Form = styled.form`
     }
 
     .desc {  
-        font-size: clamp(0.8rem, 2vw + 0.6rem, 1.6rem);
-
+        font-size: 1.6rem;
+        grid-area: desc;
         display: flex;
         flex-direction: column;
         gap: 0.8rem;
 
                 
         textarea {
-
             background-color: ${({ theme }) => theme.COLORS.DARK_900};
             color: ${({ theme }) => theme.COLORS.LIGHT_100};
             
@@ -63,8 +66,8 @@ export const Form = styled.form`
             
             border: 0;
             border-radius: 1rem;
-            font-size: clamp(0.8rem, 1vw + 0.6rem, 1.6rem);
 
+            resize: none;
 
             &:placeholder {
                 color: ${({ theme }) => theme.COLORS.LIGHT_500};
@@ -74,15 +77,48 @@ export const Form = styled.form`
     }
 
     .ingredients {
+        grid-area: ingredient;
         display: flex;
         flex-direction: column;
         gap: 0.8rem;
     }
+
+    .box-ingredients {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .8rem;
+    }
+
+    .price {
+        grid-area: price;
+    }
+
+    .button {
+        grid-area: button;
+    }
+
+    @media (min-width: 700px) {
+        display: grid;
+        align-items: center;
+        grid-template-areas: 
+        "picture name category"
+        "ingredient ingredient price"
+        "desc desc desc"
+        "none none button";
+        max-width: 90%;
+
+        .box-ingredients > * {
+            margin-bottom: 0;
+        }
+    }
 `
 
 export const Picture = styled.div`
+    grid-area: picture;
     display: flex;
+    align-self: flex-end;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: .8rem;
     
@@ -91,8 +127,8 @@ export const Picture = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     
     width: 100%;
+    height: 5rem;
     padding: 1.2rem;
-    margin-bottom: 8px;
     border-radius: 10px;
 
     img {

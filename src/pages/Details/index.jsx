@@ -103,7 +103,9 @@ export function Details() {
               title="Voltar"
               />
            </header>
-           <img src={picture} alt={`Foto de ${name}`} />
+           <div className="img">
+            <img src={picture} alt={`Foto de ${name}`} />
+           </div>
             <div className="desc">
               <h1>{name}</h1>
               <p>{description}</p>

@@ -145,31 +145,34 @@ export function New() {
                         onChange={handleChangePicture}
                     />
                 </Picture>
-                <Input 
+                <Input
                     name={"Nome"}
+                    className={"name"}
                     placeholder={"Exemplo de Nome: "}
                     onChange={event => setName(event.target.value)}
                 />
 
                 <div className="ingredients">
                     <p>Ingredientes</p>
-                    {
-                        ingredients.map((ingredient, index) => (
-                            <IngredientsItem 
-                                key={String(index)} 
-                                value={ingredient} 
-                                onClick={() => handleRemoveIngredient(ingredient) }
-                                
-                            />
-                        ))
-                    }
-                     <IngredientsItem
-                        isnew
-                        placeholder="Adicionar Ingrediente"
-                        onChange={e => setNewIngredient(e.target.value)}
-                        value={newIngredient}
-                        onClick={handleAddIngredient}
-                    />
+                    <div className="box-ingredients">
+                        {
+                            ingredients.map((ingredient, index) => (
+                                <IngredientsItem
+                                    key={String(index)}
+                                    value={ingredient}
+                                    onClick={() => handleRemoveIngredient(ingredient) }
+                        
+                                />
+                            ))
+                        }
+                         <IngredientsItem
+                            isnew
+                            placeholder="Adicionar Ingrediente"
+                            onChange={e => setNewIngredient(e.target.value)}
+                            value={newIngredient}
+                            onClick={handleAddIngredient}
+                        />
+                    </div>
                 </div>
 
                 <div className="category">
@@ -188,6 +191,7 @@ export function New() {
                 </div>
                 <Input 
                     name={"Preço"}
+                    className={"price"}
                     placeholder={"R$ 00,00"}
                     type={"Number"}
                     onChange={event => setPrice(event.target.value)}
@@ -204,10 +208,12 @@ export function New() {
                         >
                     </textarea>
                 </div>
-                <Button 
-                    title={"Salvar Alterações"}
-                    onClick={handleNewDish}
-                />
+                <div className="button">
+                    <Button
+                        title={"Salvar Alterações"}
+                        onClick={handleNewDish}
+                    />
+                </div>
              </Form>
             <Footer />
         </Container>

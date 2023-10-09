@@ -53,10 +53,7 @@ export const Price = styled.div`
     text-align: center;
     `
 
-export const Icon = styled.button`
-    background: none;
-    border: none;
-    
+export const Icon = styled.div`   
     position: absolute;
     right: 14px;
 

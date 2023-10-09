@@ -28,18 +28,18 @@ export const Container = styled.div`
             height: 15px;
         }
     }
+    
+    .order {
+        background: none;
+        border: none;
+    }
 
     @media (min-width: 680px) {
         display: grid;
         justify-items: center;
         align-items: center;
-        grid-template-columns: 2fr 3fr 2fr 1fr;
+        grid-template-columns: 2fr 3fr 1.5fr .5fr;
 
-
-        .order {
-            background: none;
-            border: none;
-        }
 
         .Nome {
             width: 100%;

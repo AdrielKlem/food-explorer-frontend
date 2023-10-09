@@ -11,6 +11,10 @@ export const Container = styled.footer`
     width: 100%;
     min-height: 8rem;
 
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+
     h1 {
         font-size: 1.6rem;
     }

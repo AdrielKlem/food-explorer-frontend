@@ -87,7 +87,7 @@ export function Header() {
 
       <button
         className="order"
-        onClick={signOut}
+        onClick={() => (signOut(), navigate('/'))}
       >
         <GoSignOut />
       </button>

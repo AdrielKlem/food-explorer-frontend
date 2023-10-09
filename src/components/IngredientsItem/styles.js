@@ -11,7 +11,9 @@ export const Container = styled.div`
 
     margin-bottom: 8px;
     border-radius: 10px;
-    padding-right: 16px;
+    max-width: fit-content;
+    padding: 0 1.2rem;
+
 
     > button {
         border: none;
@@ -27,10 +29,8 @@ export const Container = styled.div`
     }
 
     > input {
-        width:100%;
         height: 4.8rem;
 
-        padding: 12px;
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         background: transparent;
 
