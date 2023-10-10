@@ -65,7 +65,6 @@ export function New() {
         }
 
         if (!price) {
-            console.log(category)
             return alert("Erro: Você não informou o preço do prato!");
         }
 
@@ -84,9 +83,6 @@ export function New() {
         ingredients.map(ingredient => (
             formData.append("ingredients", ingredient)
         ))
-
-        console.log(formData)
-        console.log(formData.picture)
 
         await api.post("/dishes", formData)
         .then(alert("Prato foi adicionado com sucesso!"), handleBack())

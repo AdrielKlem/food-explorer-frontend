@@ -50,7 +50,6 @@ export function Change() {
     }
 
     async function handleChangeDish() {
-        console.log(pictureURL)
 
         if (!name) {
             return alert("Erro: Você não informou o nome do prato!");
@@ -69,7 +68,6 @@ export function Change() {
         }
 
         if (!price) {
-            console.log(category)
             return alert("Erro: Você não informou o preço do prato!");
         }
 
@@ -89,7 +87,6 @@ export function Change() {
         formData.append("price", price);
         formData.append("ingredients", ingredients);
 
-        console.log(pictureFile)
 
         await api.put(`/dishes/${params.id}`, formData)
         .then(alert("Prato foi atualizado com sucesso!"), handleBack())
@@ -105,10 +102,9 @@ export function Change() {
     function handleChangePicture(event) {
         const file = event.target.files[0]
         setPictureFile(file)
-        console.log(pictureFile)
+
         const imagePreview = URL.createObjectURL(file)
         setPicture(imagePreview)
-        console.log(picture)
     }
 
     function handleBack() {
