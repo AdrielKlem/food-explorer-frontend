@@ -8,7 +8,7 @@ export const Container = styled.button`
 
     width: 100%;
     height: clamp(2.6rem, 1vw + 3.5rem, 6.4rem);
-    padding: 0 1.6rem;
+    padding: 0 .8rem;
 
     font-size: clamp(0.8rem, 1.6rem , 1.8rem);
     font-weight: 500;

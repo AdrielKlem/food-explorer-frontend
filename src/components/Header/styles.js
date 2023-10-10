@@ -18,11 +18,13 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.CAKE_200};
     }
 
-    span {
+    .admin {
         color: ${({ theme }) => theme.COLORS.CAKE_200};
     }
 
     .logo {
+        position: relative;
+        
         > h1 {
             width: 15px;
             height: 15px;
@@ -40,10 +42,16 @@ export const Container = styled.div`
         align-items: center;
         grid-template-columns: 2fr 3fr 1.5fr .5fr;
 
-
         .Nome {
             width: 100%;
             margin-right: 1.6rem;
+        }
+
+        .admin {
+            font-size: 1rem;
+            position: absolute;
+            right: 0;
+            bottom: -5px;
         }
     }
 `

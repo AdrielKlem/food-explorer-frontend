@@ -84,11 +84,14 @@ export function Header() {
           : <AiOutlineMenu onClick={toggleMenu} />
         }
         {   menuOpen ? null : <LogoApp />}
-        {   menuOpen ? null : user.isAdmin ? <span>Admin</span> : <PiReceipt /> }
+        {   menuOpen ? null : user.isAdmin ? <span className="admin">Admin</span> : <PiReceipt /> }
       </Container>
     :
     <Container>
-      <LogoApp className="logo" /> 
+      <div className="logo">
+        <LogoApp />
+        {user.isAdmin ? <span className="admin">Admin</span> : null}
+      </div> 
       
       <div className="Nome">
         <Input
