@@ -88,9 +88,10 @@ export function Home() {
                             }
                         </Swiper>
                 }
-                <h2>Sobremesas</h2>
                 {
                     dishes.filter(dish => dish.category === "Sobremesa").length > 0 &&
+                    <>
+                        <h2>Sobremesas</h2>
                         <Swiper
                             slidesPerView={3}
                             centeredSlides={false}
@@ -132,10 +133,12 @@ export function Home() {
                                 ))
                             }
                         </Swiper>
+                    </>
                 }
-                <h2>Lanches</h2>
                 {
                     dishes.filter(dish => dish.category === "Lanche").length > 0 &&
+                    <>
+                        <h2>Lanches</h2>
                         <Swiper
                             slidesPerView={3}
                             centeredSlides={false}
@@ -168,7 +171,7 @@ export function Home() {
                                 dishes.filter(dish => dish.category === "Lanche")
                                 .map((dish, index) => (
                                     <SwiperSlide
-                                        key={String(index)}
+                                    key={String(index)}
                                     >
                                         <Card
                                             data={dish}
@@ -177,6 +180,7 @@ export function Home() {
                                 ))
                             }
                         </Swiper>
+                    </>
                 }
             </Section>
         </main>
