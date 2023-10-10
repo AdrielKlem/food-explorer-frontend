@@ -179,23 +179,25 @@ export function Change() {
 
                 <div className="ingredients">
                     <p>Ingredientes</p>
-                    {
-                        ingredients.map((ingredient, index) => (
-                            <IngredientsItem 
-                                key={String(index)} 
-                                value={ingredient} 
-                                onClick={() => handleRemoveIngredient(ingredient) }
-                                
-                            />
-                        ))
-                    }
-                     <IngredientsItem
-                        isnew
-                        placeholder="Adicionar Ingrediente"
-                        onChange={e => setNewIngredient(e.target.value)}
-                        value={newIngredient}
-                        onClick={handleAddIngredient}
-                    />
+                    <div className="box-ingredients">
+                        {
+                            ingredients.map((ingredient, index) => (
+                                <IngredientsItem
+                                    key={String(index)}
+                                    value={ingredient}
+                                    onClick={() => handleRemoveIngredient(ingredient) }
+                        
+                                />
+                            ))
+                        }
+                         <IngredientsItem
+                            isnew
+                            placeholder="Adicionar Ingrediente"
+                            onChange={e => setNewIngredient(e.target.value)}
+                            value={newIngredient}
+                            onClick={handleAddIngredient}
+                        />
+                    </div>
                 </div>
 
                 <div className="category">

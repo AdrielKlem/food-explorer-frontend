@@ -61,7 +61,7 @@ export const Form = styled.form`
             color: ${({ theme }) => theme.COLORS.LIGHT_100};
             
             width: 100%;
-            height: 9rem;
+            height: 16rem;
             padding: 1.2rem;
             
             border: 0;
@@ -87,6 +87,14 @@ export const Form = styled.form`
         display: flex;
         flex-wrap: wrap;
         gap: .8rem;
+
+        background-color: ${({ theme }) => theme.COLORS.DARK_900};
+
+        padding: 0.8rem;
+        border-radius: 1rem;
+
+        overflow-y: scroll;
+        max-height: 12rem;
     }
 
     .price {
@@ -127,7 +135,7 @@ export const Picture = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
     
     width: 100%;
-    height: 5rem;
+    min-height: 5rem;
     padding: 1.2rem;
     border-radius: 10px;
 
