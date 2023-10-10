@@ -26,7 +26,7 @@ export function Header() {
   };
 
   async function handleSearch(event) {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' ||  event.type==="click") {
       if (!search) {
         return alert("Você esqueceu de escrever na pesquisa")
       }
@@ -71,6 +71,9 @@ export function Header() {
                   id={"Nome"}
                   icon={GoSearch}
                   placeholder={"Busque por pratos ou ingredientes"}
+                  onChange={event => setSearch(event.target.value)}
+                  onKeyPress={event => handleSearch(event)}
+                  onIconClick={event => handleSearch(event)}
                 />
                 {user.isAdmin ? <MenuOption to="/new">Novo prato</MenuOption> : null }
                 <MenuOption onClick={signOut}>
@@ -94,6 +97,7 @@ export function Header() {
           placeholder={"Busque por pratos ou ingredientes"}
           onChange={event => setSearch(event.target.value)}
           onKeyPress={event => handleSearch(event)}
+          onIconClick={event => handleSearch(event)}
         />
       </div>
 

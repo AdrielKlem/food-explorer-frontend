@@ -9,7 +9,7 @@ export const Container = styled.footer`
     justify-content: ${({$menuOpen}) => $menuOpen ? 'left' : 'space-around'};
     
     width: 100%;
-    min-height: 8rem;
+    min-height: 5rem;
 
     position: fixed;
     bottom: 0;

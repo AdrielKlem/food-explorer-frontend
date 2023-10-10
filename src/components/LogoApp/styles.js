@@ -19,6 +19,6 @@ export const LogoSimbol = styled.div`
     background: url(${simbol}) no-repeat center;
     background-size: cover;
     
-    width: clamp(2rem, 1vw + 3rem , 5rem);
-    height: clamp(2.5rem, 1vw + 3.5rem , 5.5rem);
+    width: clamp(1rem, 1vw + 2rem , 3rem);
+    height: clamp(1.5rem, 1vw + 2.5rem , 3.5rem);
 `

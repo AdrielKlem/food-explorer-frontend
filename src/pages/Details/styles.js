@@ -14,7 +14,7 @@ export const Section = styled.div`
 
     position: relative;
 
-    margin: 3.2rem auto;
+    margin: .8rem auto;
     padding: 0 6.4rem;
 
     header {
@@ -62,14 +62,6 @@ export const Section = styled.div`
         "picture info"
         "picture ingredients"
         "picture length";
-
-
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 100vw;
-        height: 50rem;
 
         header {
             grid-area: header;
@@ -126,7 +118,6 @@ export const Length = styled.div`
     gap: 1.4rem;
     text-align: center;
     margin-bottom: 8.1rem;
-    
 
     > svg {
         width: 2.4rem;
@@ -139,5 +130,6 @@ export const Length = styled.div`
 
     @media (min-width: 700px) {
         grid-area: length;
+        margin-bottom: 0;
     }
 `

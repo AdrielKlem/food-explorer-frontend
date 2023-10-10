@@ -24,7 +24,7 @@ export const Container = styled.div`
         
         width: 100%;
         height: clamp(2.4rem, 1vw + 3.6rem, 4.5rem);
-        padding: 1.2rem;
+        padding: 0 1.2rem;
         
         border: 0;
         border-radius: 1rem;
@@ -35,8 +35,15 @@ export const Container = styled.div`
         }
     }
 
-    > svg {
-        fill: ${({ theme }) => theme.COLORS.LIGHT_400};
+    .icon-container {
+        display: flex;
         margin-left: 1.6rem;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+
+        > svg {
+            fill: ${({ theme }) => theme.COLORS.LIGHT_400};
+        }
     }
 `

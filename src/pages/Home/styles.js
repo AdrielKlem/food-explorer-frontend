@@ -14,8 +14,6 @@ export const Container = styled.div`
         margin-bottom: 3.2rem;
     }
 
-
-
     .swiper-slide {
         width: none;
     }
@@ -77,8 +75,6 @@ export const Banner = styled.div`
     }
 
     @media (min-width: 600px) {
-        margin-top: 6.4rem;
-        
         img {
             width: clamp(20rem, 26vw + 14rem, 36rem);
             height: clamp(18rem, 24vh + 10rem, 32rem);
@@ -99,8 +95,6 @@ export const Banner = styled.div`
     }
 
     @media (min-width: 1024px) {
-        margin-top: 12rem;
-
         img {
             width: clamp(20rem, 26vw + 18rem, 36rem);
             height: clamp(18rem, 24vh + 12rem, 32rem);
