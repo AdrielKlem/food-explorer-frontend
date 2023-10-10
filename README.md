@@ -10,7 +10,7 @@ Os usuários têm acesso aos cardápios dos restaurantes e podem fazer pedidos d
 
 ## 🔗 API (Back-End)
 
-- [food-explorer-backend](https://github.com/AdrielKlem/food-explorer-backend)
+- ![imagem_2023-10-10_155514827](https://github.com/AdrielKlem/food-explorer-frontend/assets/107509985/e0210862-aaf2-44db-b8b8-fbf2a70dfeaf)
 
 ## 🎨 Layout
 
