@@ -16,7 +16,7 @@ Os usuários têm acesso aos cardápios dos restaurantes e podem fazer pedidos d
 
 A página inicial em versão desktop é vista na imagem abaixo:
 
----
+## ![imagem_2023-10-10_155514827](https://github.com/AdrielKlem/food-explorer-frontend/assets/107509985/e0210862-aaf2-44db-b8b8-fbf2a70dfeaf)
 
 ## 🛠 Tecnologias
 
