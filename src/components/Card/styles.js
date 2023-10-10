@@ -80,6 +80,7 @@ export const ButtonArea = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1.6rem;
+    cursor: pointer;
     
     .counter {
         display: flex;
