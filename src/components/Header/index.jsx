@@ -95,7 +95,7 @@ export function Header() {
       
       <div className="Nome">
         <Input
-          id={"Nome"}
+          id={"Pesquisa"}
           icon={GoSearch}
           placeholder={"Busque por pratos ou ingredientes"}
           onChange={event => setSearch(event.target.value)}
