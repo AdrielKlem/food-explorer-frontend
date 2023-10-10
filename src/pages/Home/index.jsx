@@ -17,16 +17,15 @@ import banner  from "../../assets/banner-png.png"
 
 export function Home() {
     const { user } = useAuth()
-    const [search, setSearch] = useState("")
     const [dishes, setDishes] = useState([])
 
     useEffect(() => {
         async function fetchDishes() {
-          const response = await api.get(`/dishes?name=${search}`);
+          const response = await api.get(`/dishes?name=${""}`);
           setDishes(response.data);
     }
     fetchDishes();
-    }, [search])
+    }, [])
 
     return (
     <Container>

@@ -4,6 +4,7 @@ import { Input } from "../Input"
 import { LogoApp } from "../LogoApp"
 
 import { useAuth } from "../../hooks/auth"
+import { api } from "../../services/api"
 
 import { useState, useEffect } from "react"
 import { GoSearch, GoSignOut } from "react-icons/go"
@@ -15,6 +16,7 @@ import { useNavigate } from "react-router-dom"
 
 export function Header() {
   const { user, signOut } = useAuth()
+  const [search, setSearch] = useState("")
   const [menuOpen, setMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const navigate = useNavigate()
@@ -22,7 +24,28 @@ export function Header() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  async function handleSearch(event) {
+    if (event.key === 'Enter') {
+      if (!search) {
+        return alert("Você esqueceu de escrever na pesquisa")
+      }
+      const response = await api.get(`/dishes?name=${search}`)
+      
+      if(response.data.length > 3 || response.data.length == 0 ) {
+        return alert("Não encontrei o que você queria achar. Seja mais especifico")
+      }
+
+      const dishSelected = response.data[0]
+
+      handleToDetails(dishSelected.id)
+    }
+  }
   
+  function handleToDetails(id, quantity = 1) {
+        navigate(`/details?id=${id}&quantity=${quantity}`)
+  }
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -69,6 +92,8 @@ export function Header() {
           id={"Nome"}
           icon={GoSearch}
           placeholder={"Busque por pratos ou ingredientes"}
+          onChange={event => setSearch(event.target.value)}
+          onKeyPress={event => handleSearch(event)}
         />
       </div>
 
